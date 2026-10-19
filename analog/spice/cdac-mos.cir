@@ -1,0 +1,274 @@
+Differential sampled CDAC with SKY130 MOS top-plate clamps
+.include modelcard.skywater
+.param mc_switch=0
+Vdd vdd 0 1.8
+Vtrackbar trackbar 0 PWL(0 0 1.875u 0 1.876u 1.8)
+Vcm cm 0 .9
+Vtrack track 0 PWL(0 1.8 1.875u 1.8 1.876u 0)
+* Matched NMOS/PMOS transmission gates; ideal capacitor/reference sources retained.
+Xp0n tp0 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp0p tp0 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn0n tn0 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn0p tn0 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Rp0 tp0 0 1e14
+Rn0 tn0 0 1e14
+Vp0_0 bp0_0 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_0 tp0 bp0_0 2e-14
+Vn0_0 bn0_0 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_0 tn0 bn0_0 2e-14
+Vp0_1 bp0_1 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_1 tp0 bp0_1 4e-14
+Vn0_1 bn0_1 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_1 tn0 bn0_1 4e-14
+Vp0_2 bp0_2 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_2 tp0 bp0_2 8e-14
+Vn0_2 bn0_2 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_2 tn0 bn0_2 8e-14
+Vp0_3 bp0_3 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_3 tp0 bp0_3 1.6e-13
+Vn0_3 bn0_3 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_3 tn0 bn0_3 1.6e-13
+Vp0_4 bp0_4 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_4 tp0 bp0_4 3.2e-13
+Vn0_4 bn0_4 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_4 tn0 bn0_4 3.2e-13
+Vp0_5 bp0_5 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_5 tp0 bp0_5 6.4e-13
+Vn0_5 bn0_5 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_5 tn0 bn0_5 6.4e-13
+Vp0_6 bp0_6 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_6 tp0 bp0_6 1.28e-12
+Vn0_6 bn0_6 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_6 tn0 bn0_6 1.28e-12
+Vp0_7 bp0_7 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_7 tp0 bp0_7 2.56e-12
+Vn0_7 bn0_7 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_7 tn0 bn0_7 2.56e-12
+Vp0_8 bp0_8 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cp0_8 tp0 bp0_8 2e-14
+Vn0_8 bn0_8 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cn0_8 tn0 bn0_8 2e-14
+.meas tran tp_0 FIND v(tp0) AT=2.625u
+.meas tran tn_0 FIND v(tn0) AT=2.625u
+Xp1n tp1 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp1p tp1 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn1n tn1 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn1p tn1 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Rp1 tp1 0 1e14
+Rn1 tn1 0 1e14
+Vp1_0 bp1_0 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
+Cp1_0 tp1 bp1_0 2e-14
+Vn1_0 bn1_0 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
+Cn1_0 tn1 bn1_0 2e-14
+Vp1_1 bp1_1 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
+Cp1_1 tp1 bp1_1 4e-14
+Vn1_1 bn1_1 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
+Cn1_1 tn1 bn1_1 4e-14
+Vp1_2 bp1_2 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
+Cp1_2 tp1 bp1_2 8e-14
+Vn1_2 bn1_2 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
+Cn1_2 tn1 bn1_2 8e-14
+Vp1_3 bp1_3 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
+Cp1_3 tp1 bp1_3 1.6e-13
+Vn1_3 bn1_3 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
+Cn1_3 tn1 bn1_3 1.6e-13
+Vp1_4 bp1_4 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
+Cp1_4 tp1 bp1_4 3.2e-13
+Vn1_4 bn1_4 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
+Cn1_4 tn1 bn1_4 3.2e-13
+Vp1_5 bp1_5 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
+Cp1_5 tp1 bp1_5 6.4e-13
+Vn1_5 bn1_5 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
+Cn1_5 tn1 bn1_5 6.4e-13
+Vp1_6 bp1_6 0 PWL(0 0.8375 2u 0.8375 2.005u 1.15)
+Cp1_6 tp1 bp1_6 1.28e-12
+Vn1_6 bn1_6 0 PWL(0 0.9625 2u 0.9625 2.005u 0.65)
+Cn1_6 tn1 bn1_6 1.28e-12
+Vp1_7 bp1_7 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
+Cp1_7 tp1 bp1_7 2.56e-12
+Vn1_7 bn1_7 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
+Cn1_7 tn1 bn1_7 2.56e-12
+Vp1_8 bp1_8 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
+Cp1_8 tp1 bp1_8 2e-14
+Vn1_8 bn1_8 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
+Cn1_8 tn1 bn1_8 2e-14
+.meas tran tp_1 FIND v(tp1) AT=2.625u
+.meas tran tn_1 FIND v(tn1) AT=2.625u
+Xp2n tp2 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp2p tp2 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn2n tn2 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn2p tn2 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Rp2 tp2 0 1e14
+Rn2 tn2 0 1e14
+Vp2_0 bp2_0 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cp2_0 tp2 bp2_0 2e-14
+Vn2_0 bn2_0 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cn2_0 tn2 bn2_0 2e-14
+Vp2_1 bp2_1 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cp2_1 tp2 bp2_1 4e-14
+Vn2_1 bn2_1 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cn2_1 tn2 bn2_1 4e-14
+Vp2_2 bp2_2 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cp2_2 tp2 bp2_2 8e-14
+Vn2_2 bn2_2 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cn2_2 tn2 bn2_2 8e-14
+Vp2_3 bp2_3 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cp2_3 tp2 bp2_3 1.6e-13
+Vn2_3 bn2_3 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cn2_3 tn2 bn2_3 1.6e-13
+Vp2_4 bp2_4 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cp2_4 tp2 bp2_4 3.2e-13
+Vn2_4 bn2_4 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cn2_4 tn2 bn2_4 3.2e-13
+Vp2_5 bp2_5 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cp2_5 tp2 bp2_5 6.4e-13
+Vn2_5 bn2_5 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cn2_5 tn2 bn2_5 6.4e-13
+Vp2_6 bp2_6 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cp2_6 tp2 bp2_6 1.28e-12
+Vn2_6 bn2_6 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cn2_6 tn2 bn2_6 1.28e-12
+Vp2_7 bp2_7 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp2_7 tp2 bp2_7 2.56e-12
+Vn2_7 bn2_7 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn2_7 tn2 bn2_7 2.56e-12
+Vp2_8 bp2_8 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp2_8 tp2 bp2_8 2e-14
+Vn2_8 bn2_8 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn2_8 tn2 bn2_8 2e-14
+.meas tran tp_2 FIND v(tp2) AT=2.625u
+.meas tran tn_2 FIND v(tn2) AT=2.625u
+Xp3n tp3 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp3p tp3 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn3n tn3 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn3p tn3 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Rp3 tp3 0 1e14
+Rn3 tn3 0 1e14
+Vp3_0 bp3_0 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp3_0 tp3 bp3_0 2e-14
+Vn3_0 bn3_0 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn3_0 tn3 bn3_0 2e-14
+Vp3_1 bp3_1 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp3_1 tp3 bp3_1 4e-14
+Vn3_1 bn3_1 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn3_1 tn3 bn3_1 4e-14
+Vp3_2 bp3_2 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp3_2 tp3 bp3_2 8e-14
+Vn3_2 bn3_2 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn3_2 tn3 bn3_2 8e-14
+Vp3_3 bp3_3 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp3_3 tp3 bp3_3 1.6e-13
+Vn3_3 bn3_3 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn3_3 tn3 bn3_3 1.6e-13
+Vp3_4 bp3_4 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp3_4 tp3 bp3_4 3.2e-13
+Vn3_4 bn3_4 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn3_4 tn3 bn3_4 3.2e-13
+Vp3_5 bp3_5 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp3_5 tp3 bp3_5 6.4e-13
+Vn3_5 bn3_5 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn3_5 tn3 bn3_5 6.4e-13
+Vp3_6 bp3_6 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp3_6 tp3 bp3_6 1.28e-12
+Vn3_6 bn3_6 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn3_6 tn3 bn3_6 1.28e-12
+Vp3_7 bp3_7 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cp3_7 tp3 bp3_7 2.56e-12
+Vn3_7 bn3_7 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cn3_7 tn3 bn3_7 2.56e-12
+Vp3_8 bp3_8 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
+Cp3_8 tp3 bp3_8 2e-14
+Vn3_8 bn3_8 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
+Cn3_8 tn3 bn3_8 2e-14
+.meas tran tp_3 FIND v(tp3) AT=2.625u
+.meas tran tn_3 FIND v(tn3) AT=2.625u
+Xp4n tp4 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp4p tp4 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn4n tn4 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn4p tn4 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Rp4 tp4 0 1e14
+Rn4 tn4 0 1e14
+Vp4_0 bp4_0 0 PWL(0 0.9915 2u 0.9915 2.005u 1.15)
+Cp4_0 tp4 bp4_0 2e-14
+Vn4_0 bn4_0 0 PWL(0 0.8085 2u 0.8085 2.005u 0.65)
+Cn4_0 tn4 bn4_0 2e-14
+Vp4_1 bp4_1 0 PWL(0 0.9915 2u 0.9915 2.005u 1.15)
+Cp4_1 tp4 bp4_1 4e-14
+Vn4_1 bn4_1 0 PWL(0 0.8085 2u 0.8085 2.005u 0.65)
+Cn4_1 tn4 bn4_1 4e-14
+Vp4_2 bp4_2 0 PWL(0 0.9915 2u 0.9915 2.005u 1.15)
+Cp4_2 tp4 bp4_2 8e-14
+Vn4_2 bn4_2 0 PWL(0 0.8085 2u 0.8085 2.005u 0.65)
+Cn4_2 tn4 bn4_2 8e-14
+Vp4_3 bp4_3 0 PWL(0 0.9915 2u 0.9915 2.005u 1.15)
+Cp4_3 tp4 bp4_3 1.6e-13
+Vn4_3 bn4_3 0 PWL(0 0.8085 2u 0.8085 2.005u 0.65)
+Cn4_3 tn4 bn4_3 1.6e-13
+Vp4_4 bp4_4 0 PWL(0 0.9915 2u 0.9915 2.005u 0.65)
+Cp4_4 tp4 bp4_4 3.2e-13
+Vn4_4 bn4_4 0 PWL(0 0.8085 2u 0.8085 2.005u 1.15)
+Cn4_4 tn4 bn4_4 3.2e-13
+Vp4_5 bp4_5 0 PWL(0 0.9915 2u 0.9915 2.005u 1.15)
+Cp4_5 tp4 bp4_5 6.4e-13
+Vn4_5 bn4_5 0 PWL(0 0.8085 2u 0.8085 2.005u 0.65)
+Cn4_5 tn4 bn4_5 6.4e-13
+Vp4_6 bp4_6 0 PWL(0 0.9915 2u 0.9915 2.005u 0.65)
+Cp4_6 tp4 bp4_6 1.28e-12
+Vn4_6 bn4_6 0 PWL(0 0.8085 2u 0.8085 2.005u 1.15)
+Cn4_6 tn4 bn4_6 1.28e-12
+Vp4_7 bp4_7 0 PWL(0 0.9915 2u 0.9915 2.005u 1.15)
+Cp4_7 tp4 bp4_7 2.56e-12
+Vn4_7 bn4_7 0 PWL(0 0.8085 2u 0.8085 2.005u 0.65)
+Cn4_7 tn4 bn4_7 2.56e-12
+Vp4_8 bp4_8 0 PWL(0 0.9915 2u 0.9915 2.005u 0.65)
+Cp4_8 tp4 bp4_8 2e-14
+Vn4_8 bn4_8 0 PWL(0 0.8085 2u 0.8085 2.005u 1.15)
+Cn4_8 tn4 bn4_8 2e-14
+.meas tran tp_4 FIND v(tp4) AT=2.625u
+.meas tran tn_4 FIND v(tn4) AT=2.625u
+Xp5n tp5 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp5p tp5 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn5n tn5 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn5p tn5 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Rp5 tp5 0 1e14
+Rn5 tn5 0 1e14
+Vp5_0 bp5_0 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cp5_0 tp5 bp5_0 2e-14
+Vn5_0 bn5_0 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cn5_0 tn5 bn5_0 2e-14
+Vp5_1 bp5_1 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cp5_1 tp5 bp5_1 4e-14
+Vn5_1 bn5_1 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cn5_1 tn5 bn5_1 4e-14
+Vp5_2 bp5_2 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cp5_2 tp5 bp5_2 8e-14
+Vn5_2 bn5_2 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cn5_2 tn5 bn5_2 8e-14
+Vp5_3 bp5_3 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cp5_3 tp5 bp5_3 1.6e-13
+Vn5_3 bn5_3 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cn5_3 tn5 bn5_3 1.6e-13
+Vp5_4 bp5_4 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cp5_4 tp5 bp5_4 3.2e-13
+Vn5_4 bn5_4 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cn5_4 tn5 bn5_4 3.2e-13
+Vp5_5 bp5_5 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cp5_5 tp5 bp5_5 6.4e-13
+Vn5_5 bn5_5 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cn5_5 tn5 bn5_5 6.4e-13
+Vp5_6 bp5_6 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cp5_6 tp5 bp5_6 1.28e-12
+Vn5_6 bn5_6 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cn5_6 tn5 bn5_6 1.28e-12
+Vp5_7 bp5_7 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
+Cp5_7 tp5 bp5_7 2.56e-12
+Vn5_7 bn5_7 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
+Cn5_7 tn5 bn5_7 2.56e-12
+Vp5_8 bp5_8 0 PWL(0 1.145 2u 1.145 2.005u 0.65)
+Cp5_8 tp5 bp5_8 2e-14
+Vn5_8 bn5_8 0 PWL(0 0.655 2u 0.655 2.005u 1.15)
+Cn5_8 tn5 bn5_8 2e-14
+.meas tran tp_5 FIND v(tp5) AT=2.625u
+.meas tran tn_5 FIND v(tn5) AT=2.625u
+.tran 1n 3u
+.end

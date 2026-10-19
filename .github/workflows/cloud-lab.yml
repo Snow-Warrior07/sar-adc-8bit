@@ -6,7 +6,7 @@ on:
         type: choice
         description: Engineering stages to execute
         default: all
-        options: [all, timing]
+        options: [all, circuits, timing]
 permissions:
   contents: read
 jobs:
@@ -45,6 +45,7 @@ jobs:
             build/*.v
             build/*.sdc
   timing:
+    if: inputs.mode != 'circuits'
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:

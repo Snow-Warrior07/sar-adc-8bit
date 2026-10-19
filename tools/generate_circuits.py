@@ -76,6 +76,19 @@ Cdac dq 0 5.12p
 '''
 
 
+def mos_cdac_deck():
+    text,manifest=cdac_deck()
+    text=text.replace('Differential sampled charge CDAC - ideal switches and capacitors',
+                      'Differential sampled CDAC with SKY130 MOS top-plate clamps\n.include modelcard.skywater\n.param mc_switch=0\nVdd vdd 0 1.8\nVtrackbar trackbar 0 PWL(0 0 1.875u 0 1.876u 1.8)')
+    text=text.replace('.model CLAMP SW(Ron=1 Roff=1e15 Vt=.9 Vh=.05)','* Matched NMOS/PMOS transmission gates; ideal capacitor/reference sources retained.')
+    for i in range(len(manifest)):
+        for side in ['p','n']:
+            old=f'S{side}{i} t{side}{i} cm track 0 CLAMP'
+            new=f'X{side}{i}n t{side}{i} cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u\nX{side}{i}p t{side}{i} cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u'
+            text=text.replace(old,new)
+    return text,manifest
+
+
 def run():
     folder=ROOT/'analog'/'spice';folder.mkdir(parents=True,exist_ok=True)
     cases=[(sign*x,.9,1.8) for sign in (1,-1) for x in [.000390625,.0009765625,.001953125,.00390625,.015625]]
@@ -86,6 +99,7 @@ def run():
         name=f'comparator-{temp}c.cir';(folder/name).write_text(text,encoding='utf-8');manifests[name]=manifest
     text,manifest=comparator_deck(cases,27,'10p');(folder/'comparator-convergence.cir').write_text(text,encoding='utf-8');manifests['comparator-convergence.cir']=manifest
     text,manifest=cdac_deck();(folder/'cdac-charge.cir').write_text(text,encoding='utf-8');manifests['cdac-charge.cir']=manifest
+    text,manifest=mos_cdac_deck();(folder/'cdac-mos.cir').write_text(text,encoding='utf-8');manifests['cdac-mos.cir']=manifest
     (folder/'settling.cir').write_text(settling_deck(),encoding='utf-8')
     save('analog/spice/manifest.json',manifests)
     print('Generated circuit benches and exact case manifest')

@@ -29,7 +29,7 @@ def api(route,method='GET',data=None,binary=False):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['create','dispatch','runs','jobs','logs','artifacts','download','pages','enable-pages','verify']);p.add_argument('--id',type=int,default=0);p.add_argument('--mode',choices=['all','timing'],default='all')
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['create','dispatch','runs','jobs','logs','artifacts','download','pages','enable-pages','verify']);p.add_argument('--id',type=int,default=0);p.add_argument('--mode',choices=['all','circuits','timing'],default='all')
     a=p.parse_args();base=f'/repos/{OWNER}/{REPO}'
     user=api('/user')
     if user['login']!=OWNER:raise RuntimeError('Authenticated account does not match project owner')
