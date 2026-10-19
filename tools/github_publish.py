@@ -17,8 +17,9 @@ def token():
 def api(route,method='GET',data=None,binary=False):
     req=urllib.request.Request('https://api.github.com'+route,
          data=json.dumps(data).encode() if data is not None else None,
-         headers={'Authorization':'Bearer '+token(),'Accept':'application/vnd.github+json',
+         headers={'Accept':'application/vnd.github+json',
                   'User-Agent':'sar-adc-engineering','X-GitHub-Api-Version':'2022-11-28'},method=method)
+    req.add_unredirected_header('Authorization','Bearer '+token())
     try:
         with urllib.request.urlopen(req,timeout=60) as r:
             raw=r.read()
@@ -28,7 +29,7 @@ def api(route,method='GET',data=None,binary=False):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['create','dispatch','runs','jobs','artifacts','download','pages','enable-pages','verify']);p.add_argument('--id',type=int,default=0)
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['create','dispatch','runs','jobs','logs','artifacts','download','pages','enable-pages','verify']);p.add_argument('--id',type=int,default=0)
     a=p.parse_args();base=f'/repos/{OWNER}/{REPO}'
     user=api('/user')
     if user['login']!=OWNER:raise RuntimeError('Authenticated account does not match project owner')
@@ -53,6 +54,11 @@ def main():
                 if not (dest/m.filename).resolve().is_relative_to(dest):raise RuntimeError('Unsafe artifact path')
             z.extractall(dest)
         print(json.dumps({'destination':str(dest),'bytes':len(raw)}))
+    elif a.action=='logs':
+        raw=api(base+f'/actions/jobs/{a.id}/logs',binary=True).decode(errors='replace')
+        folder=ROOT/'results'/'ci';folder.mkdir(parents=True,exist_ok=True)
+        (folder/f'job-{a.id}.txt').write_text(raw,encoding='utf-8')
+        print(raw[-6500:])
     elif a.action=='pages':print(json.dumps(api(base+'/pages')))
     elif a.action=='enable-pages':
         try:r=api(base+'/pages')
