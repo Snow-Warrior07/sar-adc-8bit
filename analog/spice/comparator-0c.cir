@@ -1,0 +1,149 @@
+SKY130 comparator characterization
+.include modelcard.skywater
+.param mc_switch=0
+.temp 0
+
+.subckt comparator ip inn clk vdd op on
+Xtail tail clk 0 0 sky130_fd_pr__nfet_01v8 W=3.36u L=0.15u
+X1 xp ip tail 0 sky130_fd_pr__nfet_01v8 W=1.68u L=0.15u
+X2 xn inn tail 0 sky130_fd_pr__nfet_01v8 W=1.68u L=0.15u
+Xn1 on op xp 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn2 op on xn 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp1 on op vdd vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xp2 op on vdd vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xr1 xp clk vdd vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xr2 xn clk vdd vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xr3 op clk vdd vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xr4 on clk vdd vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Cp op 0 20f
+Cn on 0 20f
+.ends comparator
+
+Vdd0 vdd0 0 1.8
+Vip0 ip0 0 0.9001953125
+Vin0 in0 0 0.8998046875
+Vclk0 clk0 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc0 ip0 in0 clk0 vdd0 op0 on0 comparator
+.meas tran delay_0 TRIG v(clk0) VAL=0.9 RISE=1 TARG v(on0) VAL=0.9 FALL=1
+.meas tran op_0 FIND v(op0) AT=35n
+.meas tran on_0 FIND v(on0) AT=35n
+.meas tran charge_0 INTEG i(Vdd0) FROM=20n TO=40n
+Vdd1 vdd1 0 1.8
+Vip1 ip1 0 0.90048828125
+Vin1 in1 0 0.89951171875
+Vclk1 clk1 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc1 ip1 in1 clk1 vdd1 op1 on1 comparator
+.meas tran delay_1 TRIG v(clk1) VAL=0.9 RISE=1 TARG v(on1) VAL=0.9 FALL=1
+.meas tran op_1 FIND v(op1) AT=35n
+.meas tran on_1 FIND v(on1) AT=35n
+.meas tran charge_1 INTEG i(Vdd1) FROM=20n TO=40n
+Vdd2 vdd2 0 1.8
+Vip2 ip2 0 0.9009765625
+Vin2 in2 0 0.8990234375
+Vclk2 clk2 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc2 ip2 in2 clk2 vdd2 op2 on2 comparator
+.meas tran delay_2 TRIG v(clk2) VAL=0.9 RISE=1 TARG v(on2) VAL=0.9 FALL=1
+.meas tran op_2 FIND v(op2) AT=35n
+.meas tran on_2 FIND v(on2) AT=35n
+.meas tran charge_2 INTEG i(Vdd2) FROM=20n TO=40n
+Vdd3 vdd3 0 1.8
+Vip3 ip3 0 0.901953125
+Vin3 in3 0 0.898046875
+Vclk3 clk3 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc3 ip3 in3 clk3 vdd3 op3 on3 comparator
+.meas tran delay_3 TRIG v(clk3) VAL=0.9 RISE=1 TARG v(on3) VAL=0.9 FALL=1
+.meas tran op_3 FIND v(op3) AT=35n
+.meas tran on_3 FIND v(on3) AT=35n
+.meas tran charge_3 INTEG i(Vdd3) FROM=20n TO=40n
+Vdd4 vdd4 0 1.8
+Vip4 ip4 0 0.9078125
+Vin4 in4 0 0.8921875
+Vclk4 clk4 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc4 ip4 in4 clk4 vdd4 op4 on4 comparator
+.meas tran delay_4 TRIG v(clk4) VAL=0.9 RISE=1 TARG v(on4) VAL=0.9 FALL=1
+.meas tran op_4 FIND v(op4) AT=35n
+.meas tran on_4 FIND v(on4) AT=35n
+.meas tran charge_4 INTEG i(Vdd4) FROM=20n TO=40n
+Vdd5 vdd5 0 1.8
+Vip5 ip5 0 0.8998046875
+Vin5 in5 0 0.9001953125
+Vclk5 clk5 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc5 ip5 in5 clk5 vdd5 op5 on5 comparator
+.meas tran delay_5 TRIG v(clk5) VAL=0.9 RISE=1 TARG v(op5) VAL=0.9 FALL=1
+.meas tran op_5 FIND v(op5) AT=35n
+.meas tran on_5 FIND v(on5) AT=35n
+.meas tran charge_5 INTEG i(Vdd5) FROM=20n TO=40n
+Vdd6 vdd6 0 1.8
+Vip6 ip6 0 0.89951171875
+Vin6 in6 0 0.90048828125
+Vclk6 clk6 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc6 ip6 in6 clk6 vdd6 op6 on6 comparator
+.meas tran delay_6 TRIG v(clk6) VAL=0.9 RISE=1 TARG v(op6) VAL=0.9 FALL=1
+.meas tran op_6 FIND v(op6) AT=35n
+.meas tran on_6 FIND v(on6) AT=35n
+.meas tran charge_6 INTEG i(Vdd6) FROM=20n TO=40n
+Vdd7 vdd7 0 1.8
+Vip7 ip7 0 0.8990234375
+Vin7 in7 0 0.9009765625
+Vclk7 clk7 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc7 ip7 in7 clk7 vdd7 op7 on7 comparator
+.meas tran delay_7 TRIG v(clk7) VAL=0.9 RISE=1 TARG v(op7) VAL=0.9 FALL=1
+.meas tran op_7 FIND v(op7) AT=35n
+.meas tran on_7 FIND v(on7) AT=35n
+.meas tran charge_7 INTEG i(Vdd7) FROM=20n TO=40n
+Vdd8 vdd8 0 1.8
+Vip8 ip8 0 0.898046875
+Vin8 in8 0 0.901953125
+Vclk8 clk8 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc8 ip8 in8 clk8 vdd8 op8 on8 comparator
+.meas tran delay_8 TRIG v(clk8) VAL=0.9 RISE=1 TARG v(op8) VAL=0.9 FALL=1
+.meas tran op_8 FIND v(op8) AT=35n
+.meas tran on_8 FIND v(on8) AT=35n
+.meas tran charge_8 INTEG i(Vdd8) FROM=20n TO=40n
+Vdd9 vdd9 0 1.8
+Vip9 ip9 0 0.8921875
+Vin9 in9 0 0.9078125
+Vclk9 clk9 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc9 ip9 in9 clk9 vdd9 op9 on9 comparator
+.meas tran delay_9 TRIG v(clk9) VAL=0.9 RISE=1 TARG v(op9) VAL=0.9 FALL=1
+.meas tran op_9 FIND v(op9) AT=35n
+.meas tran on_9 FIND v(on9) AT=35n
+.meas tran charge_9 INTEG i(Vdd9) FROM=20n TO=40n
+Vdd10 vdd10 0 1.8
+Vip10 ip10 0 0.8005
+Vin10 in10 0 0.7995
+Vclk10 clk10 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc10 ip10 in10 clk10 vdd10 op10 on10 comparator
+.meas tran delay_10 TRIG v(clk10) VAL=0.9 RISE=1 TARG v(on10) VAL=0.9 FALL=1
+.meas tran op_10 FIND v(op10) AT=35n
+.meas tran on_10 FIND v(on10) AT=35n
+.meas tran charge_10 INTEG i(Vdd10) FROM=20n TO=40n
+Vdd11 vdd11 0 1.8
+Vip11 ip11 0 1.0005
+Vin11 in11 0 0.9995
+Vclk11 clk11 0 PULSE(0 1.8 20n 100p 100p 20n 40n)
+Xc11 ip11 in11 clk11 vdd11 op11 on11 comparator
+.meas tran delay_11 TRIG v(clk11) VAL=0.9 RISE=1 TARG v(on11) VAL=0.9 FALL=1
+.meas tran op_11 FIND v(op11) AT=35n
+.meas tran on_11 FIND v(on11) AT=35n
+.meas tran charge_11 INTEG i(Vdd11) FROM=20n TO=40n
+Vdd12 vdd12 0 1.7
+Vip12 ip12 0 0.9005
+Vin12 in12 0 0.8995
+Vclk12 clk12 0 PULSE(0 1.7 20n 100p 100p 20n 40n)
+Xc12 ip12 in12 clk12 vdd12 op12 on12 comparator
+.meas tran delay_12 TRIG v(clk12) VAL=0.85 RISE=1 TARG v(on12) VAL=0.85 FALL=1
+.meas tran op_12 FIND v(op12) AT=35n
+.meas tran on_12 FIND v(on12) AT=35n
+.meas tran charge_12 INTEG i(Vdd12) FROM=20n TO=40n
+Vdd13 vdd13 0 1.9
+Vip13 ip13 0 0.9005
+Vin13 in13 0 0.8995
+Vclk13 clk13 0 PULSE(0 1.9 20n 100p 100p 20n 40n)
+Xc13 ip13 in13 clk13 vdd13 op13 on13 comparator
+.meas tran delay_13 TRIG v(clk13) VAL=0.95 RISE=1 TARG v(on13) VAL=0.95 FALL=1
+.meas tran op_13 FIND v(op13) AT=35n
+.meas tran on_13 FIND v(on13) AT=35n
+.meas tran charge_13 INTEG i(Vdd13) FROM=20n TO=40n
+.tran 20p 80n
+.end

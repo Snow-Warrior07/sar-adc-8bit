@@ -1,0 +1,94 @@
+{
+  "phase": 3,
+  "name": "Real RTL controller verification",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "ideal input and bit-trace equivalence",
+      "passed": true,
+      "conversions": 11021
+    },
+    {
+      "name": "all comparator decision sequences",
+      "passed": true,
+      "patterns": 256
+    },
+    {
+      "name": "reset in every non-idle state and recovery",
+      "passed": true,
+      "states": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "name": "all bit retain/clear outcomes",
+      "passed": true,
+      "covered": 16
+    },
+    {
+      "name": "32-clock sustained initiation interval",
+      "passed": true,
+      "clock_hz": 3200000,
+      "sample_rate_hz": 100000
+    },
+    {
+      "name": "output stability, one-cycle valid, trial stability, busy-start handling",
+      "passed": true
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "executed_at_utc": "2026-10-19T09:24:14Z",
+  "latency_cycles": [
+    31
+  ],
+  "fsm_states": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "state_transitions": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      6
+    ]
+  ],
+  "wall_seconds": 36.69663667678833,
+  "simulator": "Icarus Verilog; actual synthesizable RTL with line-oriented closed-loop Python bridge",
+  "deviation_from_plan": "Portable line protocol replaces cocotb/VPI; same actual RTL is observed and driven each cycle."
+}

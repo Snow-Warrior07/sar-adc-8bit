@@ -1,0 +1,18 @@
+{
+  "name": "nominal-behavioural",
+  "unit_cap_f": 2e-14,
+  "mismatch_sigma": 0.0025,
+  "acquisition_tau_s": 5.12e-08,
+  "dac_tau_s": 2.56e-08,
+  "comparator_offset_v": 0.00035,
+  "comparator_noise_rms_v": 0.00025,
+  "sample_noise_rms_v": 4.0224e-05,
+  "leakage_v_per_s": 10.0,
+  "reference_r_ohm": 10.0,
+  "reference_c_f": 1e-07,
+  "delay_base_s": 0.0,
+  "delay_log_s": 0.0,
+  "delay_floor_v": 1e-06,
+  "capture_margin_s": 5e-09,
+  "fidelity": "behavioural; parameters explicitly assumed"
+}

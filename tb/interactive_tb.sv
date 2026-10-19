@@ -17,7 +17,7 @@ module interactive_tb;
             @(negedge clk);
             $display("STEP %0d %0d %0d %0d %0d %0d %0d %0d %0d %0d %0d",cycle,state_debug,bit_debug,trial_code,data,data_valid,ready,busy,top_clamp,sample_select,cmp_eval);
             $fflush();
-            rc=$fscanf(32'h80000000,"%d %d %d\n",r,s,c);
+            rc=$fscanf(32'h80000000,"%d %d %d",r,s,c);
             if (rc!=3 || r<0) $finish;
             rst_n=(r!=0);start=(s!=0);cmp_keep=(c!=0);cycle=cycle+1;
         end

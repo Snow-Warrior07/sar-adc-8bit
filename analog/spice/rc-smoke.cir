@@ -1,0 +1,8 @@
+RC measured
+V1 in 0 PULSE(0 1 1u 1n 1n 20u 40u)
+R1 in out 1k
+C1 out 0 1n
+.tran 10n 10u
+.meas tran tc WHEN v(out)=0.632120559 RISE=1
+.meas tran final FIND v(out) AT=9u
+.end

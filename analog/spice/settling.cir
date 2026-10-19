@@ -1,0 +1,12 @@
+Lumped acquisition and DAC-driver settling characterization
+Vstep in 0 PULSE(0 1 1u 100p 100p 5u 10u)
+Racq in aq 10k
+Cacq aq 0 5.12p
+Rdac in dq 5k
+Cdac dq 0 5.12p
+.tran 100p 2u
+.meas tran acq_cross WHEN v(aq)=0.632120559 RISE=1
+.meas tran dac_cross WHEN v(dq)=0.632120559 RISE=1
+.meas tran acq_final FIND v(aq) AT=1.625u
+.meas tran dac_final FIND v(dq) AT=1.625u
+.end

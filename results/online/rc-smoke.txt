@@ -1,0 +1,11 @@
+Source: https://gen1.eecircuit.com/
+Engine: ngspice-45.2, browser WebAssembly
+Circuit: rc measured
+Analysis: TEMP = 27.000000 and TNOM = 27.000000
+No. of Data Rows : 1019
+Measurements for Transient Analysis
+tc                  =   2.00050e-06
+final               =  9.996644e-01
+
+The input step begins at 1 us. Measured time constant = tc - 1 us = 1.00050 us.
+The source log was read from the online simulator's Info tab; these lines are a transcription of its output, not a local SPICE run.

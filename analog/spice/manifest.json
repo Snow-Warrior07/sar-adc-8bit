@@ -1,0 +1,440 @@
+{
+  "comparator-0c.cir": [
+    {
+      "index": 0,
+      "differential_v": 0.000390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 1,
+      "differential_v": 0.0009765625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 2,
+      "differential_v": 0.001953125,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 3,
+      "differential_v": 0.00390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 4,
+      "differential_v": 0.015625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 5,
+      "differential_v": -0.000390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 6,
+      "differential_v": -0.0009765625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 7,
+      "differential_v": -0.001953125,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 8,
+      "differential_v": -0.00390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 9,
+      "differential_v": -0.015625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 10,
+      "differential_v": 0.001,
+      "common_mode_v": 0.8,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 11,
+      "differential_v": 0.001,
+      "common_mode_v": 1.0,
+      "supply_v": 1.8,
+      "temperature_c": 0
+    },
+    {
+      "index": 12,
+      "differential_v": 0.001,
+      "common_mode_v": 0.9,
+      "supply_v": 1.7,
+      "temperature_c": 0
+    },
+    {
+      "index": 13,
+      "differential_v": 0.001,
+      "common_mode_v": 0.9,
+      "supply_v": 1.9,
+      "temperature_c": 0
+    }
+  ],
+  "comparator-27c.cir": [
+    {
+      "index": 0,
+      "differential_v": 0.000390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 1,
+      "differential_v": 0.0009765625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 2,
+      "differential_v": 0.001953125,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 3,
+      "differential_v": 0.00390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 4,
+      "differential_v": 0.015625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 5,
+      "differential_v": -0.000390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 6,
+      "differential_v": -0.0009765625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 7,
+      "differential_v": -0.001953125,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 8,
+      "differential_v": -0.00390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 9,
+      "differential_v": -0.015625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 10,
+      "differential_v": 0.001,
+      "common_mode_v": 0.8,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 11,
+      "differential_v": 0.001,
+      "common_mode_v": 1.0,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 12,
+      "differential_v": 0.001,
+      "common_mode_v": 0.9,
+      "supply_v": 1.7,
+      "temperature_c": 27
+    },
+    {
+      "index": 13,
+      "differential_v": 0.001,
+      "common_mode_v": 0.9,
+      "supply_v": 1.9,
+      "temperature_c": 27
+    }
+  ],
+  "comparator-85c.cir": [
+    {
+      "index": 0,
+      "differential_v": 0.000390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 1,
+      "differential_v": 0.0009765625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 2,
+      "differential_v": 0.001953125,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 3,
+      "differential_v": 0.00390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 4,
+      "differential_v": 0.015625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 5,
+      "differential_v": -0.000390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 6,
+      "differential_v": -0.0009765625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 7,
+      "differential_v": -0.001953125,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 8,
+      "differential_v": -0.00390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 9,
+      "differential_v": -0.015625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 10,
+      "differential_v": 0.001,
+      "common_mode_v": 0.8,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 11,
+      "differential_v": 0.001,
+      "common_mode_v": 1.0,
+      "supply_v": 1.8,
+      "temperature_c": 85
+    },
+    {
+      "index": 12,
+      "differential_v": 0.001,
+      "common_mode_v": 0.9,
+      "supply_v": 1.7,
+      "temperature_c": 85
+    },
+    {
+      "index": 13,
+      "differential_v": 0.001,
+      "common_mode_v": 0.9,
+      "supply_v": 1.9,
+      "temperature_c": 85
+    }
+  ],
+  "comparator-convergence.cir": [
+    {
+      "index": 0,
+      "differential_v": 0.000390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 1,
+      "differential_v": 0.0009765625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 2,
+      "differential_v": 0.001953125,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 3,
+      "differential_v": 0.00390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 4,
+      "differential_v": 0.015625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 5,
+      "differential_v": -0.000390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 6,
+      "differential_v": -0.0009765625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 7,
+      "differential_v": -0.001953125,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 8,
+      "differential_v": -0.00390625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 9,
+      "differential_v": -0.015625,
+      "common_mode_v": 0.9,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 10,
+      "differential_v": 0.001,
+      "common_mode_v": 0.8,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 11,
+      "differential_v": 0.001,
+      "common_mode_v": 1.0,
+      "supply_v": 1.8,
+      "temperature_c": 27
+    },
+    {
+      "index": 12,
+      "differential_v": 0.001,
+      "common_mode_v": 0.9,
+      "supply_v": 1.7,
+      "temperature_c": 27
+    },
+    {
+      "index": 13,
+      "differential_v": 0.001,
+      "common_mode_v": 0.9,
+      "supply_v": 1.9,
+      "temperature_c": 27
+    }
+  ],
+  "cdac-charge.cir": [
+    {
+      "index": 0,
+      "input_v": -0.49,
+      "code": 0,
+      "expected_residual_v": -0.010000000000000009
+    },
+    {
+      "index": 1,
+      "input_v": -0.125,
+      "code": 64,
+      "expected_residual_v": -0.125
+    },
+    {
+      "index": 2,
+      "input_v": 0,
+      "code": 127,
+      "expected_residual_v": -0.00390625
+    },
+    {
+      "index": 3,
+      "input_v": 0,
+      "code": 128,
+      "expected_residual_v": 0.0
+    },
+    {
+      "index": 4,
+      "input_v": 0.183,
+      "code": 175,
+      "expected_residual_v": 0.000593750000000004
+    },
+    {
+      "index": 5,
+      "input_v": 0.49,
+      "code": 255,
+      "expected_residual_v": 0.006093750000000009
+    }
+  ]
+}

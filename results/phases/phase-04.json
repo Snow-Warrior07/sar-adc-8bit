@@ -1,0 +1,35 @@
+{
+  "phase": 4,
+  "name": "Behavioural analog model with actual RTL",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "all imperfections disabled: exact RTL equivalence",
+      "passed": true,
+      "conversions": 1000,
+      "mismatches": 0
+    },
+    {
+      "name": "nominal combined analog model",
+      "passed": true,
+      "conversions": 1000,
+      "max_code_difference": 1
+    },
+    {
+      "name": "no late comparator decisions",
+      "passed": true,
+      "timeouts": 0
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "executed_at_utc": "2026-10-19T09:25:24Z",
+  "nominal_code_error_histogram": {
+    "-1": 2,
+    "0": 931,
+    "1": 67
+  },
+  "fidelity": "behavioural; parameters explicitly assumed"
+}
