@@ -1,0 +1,13 @@
+{
+  "status": "prepared",
+  "profile_projects": 5,
+  "project_url": "https://github.com/Snow-Warrior07/sar-adc-8bit",
+  "portfolio_url": "https://snow-warrior07.github.io/",
+  "measured_model_enob": 7.890096453982224,
+  "files": [
+    "profile.json",
+    "scripts/update-profile.mjs",
+    "dist/index.html",
+    "dist/assets/sar-adc-characterization.png"
+  ]
+}

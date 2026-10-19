@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "source_commit": "8b4d9d577d8cac48e7485f283d20b7abbf474f0b",
+  "source_archive_sha256": "7a233bcb35a0a49c017bfeeb60eded9c3d1532826f390289e4264ea45c0900ba",
+  "environment": "New Python virtual environment installed from requirements.txt; shared portable Icarus toolchain",
+  "checks": [
+    {
+      "name": "unit",
+      "passed": true,
+      "output": ".........                                                                [100%]\n9 passed in 2.45s\n"
+    },
+    {
+      "name": "rtl",
+      "passed": true,
+      "output": " bit-trace equivalence\",\n      \"passed\": true,\n      \"conversions\": 1121\n    },\n    {\n      \"name\": \"all comparator decision sequences\",\n      \"passed\": true,\n      \"patterns\": 256\n    },\n    {\n      \"name\": \"reset in every non-idle state and recovery\",\n      \"passed\": true,\n      \"states\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n      ]\n    },\n    {\n      \"name\": \"all bit retain/clear outcomes\",\n      \"passed\": true,\n      \"covered\": 16\n    },\n    {\n      \"name\": \"32-clock sustained initiation interval\",\n      \"passed\": true,\n      \"clock_hz\": 3200000,\n      \"sample_rate_hz\": 100000\n    },\n    {\n      \"name\": \"output stability, one-cycle valid, trial stability, busy-start handling\",\n      \"passed\": true\n    }\n  ],\n  \"environment\": {\n    \"python\": \"3.12.14\",\n    \"platform\": \"Windows-11-10.0.26300-SP0\"\n  },\n  \"executed_at_utc\": \"2026-10-19T10:02:04Z\",\n  \"latency_cycles\": [\n    31\n  ],\n  \"fsm_states\": [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6\n  ],\n  \"state_transitions\": [\n    [\n      1,\n      1\n    ],\n    [\n      1,\n      2\n    ],\n    [\n      2,\n      3\n    ],\n    [\n      3,\n      4\n    ],\n    [\n      4,\n      5\n    ],\n    [\n      5,\n      3\n    ],\n    [\n      5,\n      6\n    ]\n  ],\n  \"wall_seconds\": 4.6393187046051025,\n  \"simulator\": \"Icarus Verilog; actual synthesizable RTL with line-oriented closed-loop Python bridge\",\n  \"deviation_from_plan\": \"Portable line protocol replaces cocotb/VPI; same actual RTL is observed and driven each cycle.\"\n}\n"
+    }
+  ],
+  "packages": [
+    "colorama==0.4.6",
+    "contourpy==1.4.0",
+    "cycler==0.12.1",
+    "fonttools==4.67.0",
+    "iniconfig==2.3.1",
+    "kiwisolver==1.5.1",
+    "matplotlib==3.11.2",
+    "numpy==2.5.4",
+    "packaging==26.3",
+    "pillow==13.0.0",
+    "pluggy==1.7.0",
+    "Pygments==2.21.0",
+    "pyparsing==3.3.3",
+    "pytest==9.1.1",
+    "python-dateutil==2.9.0.post0",
+    "PyYAML==6.0.3",
+    "scipy==1.18.1",
+    "six==1.17.0"
+  ]
+}

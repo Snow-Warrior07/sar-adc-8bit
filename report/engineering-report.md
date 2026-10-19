@@ -29,6 +29,8 @@ The comparator keeps a trial when top N is at least top P. The final LSB decisio
 
 ## Online analog evidence
 
+![Online circuit measurements](figures/online-circuit-characterization.png)
+
 The online runner used ngspice with the pinned EEcircuit SKY130 model port. Forty-two comparator operating points cover both input polarities, overdrives from 0.1 to 4 LSB, selected input common modes, supplies and temperatures. The largest measured decision delay was 1.513 ns. A 10 ps versus 20 ps timestep comparison changed delay by at most 0.1521%. Ideal CDAC charge residuals matched the derived equation within 50 nV for six cases. Additional MOS sampling-clamp results are retained when available.
 
 The corrected SKY130 transmission-gate sampling-clamp bench matched the differential charge result within 19 uV (0.0049 LSB) across its six cases. An initial gate/source wiring error and its failed measurements are retained in the experiment log.
@@ -63,8 +65,8 @@ Five assumed unit-capacitor mismatch levels each use 200 fixed seeded instances.
 
 | FSM encoding | Mapped cells | Cell area (um^2) | Setup/hold worst-slack values (ns) |
 |---|---:|---:|---|
-| binary | 127 | 1277.475 | 291.080, -0.201 |
-| one-hot | 138 | 1355.050 | 291.176, -0.201 |
+| binary | 127 | 1277.475 | 155.608, 0.348 |
+| one-hot | 138 | 1355.050 | 155.608, 0.280 |
 
 Compare both explicit encodings under the same library and constraints. This includes the external state-debug decoding. Pre-layout area/timing does not include clock distribution, pad loading beyond the declared constraints, physical parasitics or analog layout.
 

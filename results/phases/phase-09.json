@@ -1,0 +1,49 @@
+{
+  "phase": 9,
+  "name": "Clean reproduction and release audit",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "all prior engineering gates passed",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "clean-source, clean-Python unit and actual-RTL reproduction",
+      "passed": true,
+      "source_commit": "8b4d9d577d8cac48e7485f283d20b7abbf474f0b"
+    },
+    {
+      "name": "published CSVs reproduce the saved FFT metrics",
+      "passed": true,
+      "records": 2,
+      "samples_each": 4096
+    },
+    {
+      "name": "online executed netlist hashes match release circuits",
+      "passed": true,
+      "circuits": 8
+    },
+    {
+      "name": "README/report/phase-index local links resolve",
+      "passed": true,
+      "links_checked": 39
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "executed_at_utc": "2026-10-19T10:07:33Z",
+  "scope": "Engineering release audit; profile/portfolio integration and final GitHub publication follow this gate."
+}

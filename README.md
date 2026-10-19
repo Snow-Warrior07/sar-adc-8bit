@@ -46,8 +46,8 @@ The input differential span is -0.5 to +0.5 V at a 0.9 V common mode and nominal
 | 5 | Online circuit characterization | PASSED | [Evidence](results/phases/phase-05.json) |
 | 6 | SPICE-derived model with actual RTL | PASSED | [Evidence](results/phases/phase-06.json) |
 | 7 | Static, dynamic and sensitivity characterization | PASSED | [Evidence](results/phases/phase-07.json) |
-| 8 | SKY130 synthesis and pre-layout static timing | FAILED | [Evidence](results/phases/phase-08.json) |
-| 9 | Release audit | PENDING | [Evidence](results/phases/phase-09.json) |
+| 8 | SKY130 synthesis and pre-layout static timing | PASSED | [Evidence](results/phases/phase-08.json) |
+| 9 | Clean reproduction and release audit | PASSED | [Evidence](results/phases/phase-09.json) |
 
 Failed GitHub workflow attempts remain in the Actions history. A workflow failure is not relabelled as an engineering pass; the saved individual phase checks and online artifacts show what actually ran.
 
@@ -55,8 +55,8 @@ Failed GitHub workflow attempts remain in the Actions history. A workflow failur
 
 | FSM encoding | Mapped cells | Cell area (um^2) | Setup/hold worst-slack values (ns) |
 |---|---:|---:|---|
-| binary | 127 | 1277.475 | 291.080, -0.201 |
-| one-hot | 138 | 1355.050 | 291.176, -0.201 |
+| binary | 127 | 1277.475 | 155.608, 0.348 |
+| one-hot | 138 | 1355.050 | 155.608, 0.280 |
 
 Area is for the controller including its debug outputs, at SKY130 HD TT 25 C / 1.8 V. Analog blocks, clock tree, pads and physical routing are excluded. Timing is pre-layout with an ideal clock and explicit external comparator/interface delay assumptions; inspect the SDC and logs before interpreting slack.
 

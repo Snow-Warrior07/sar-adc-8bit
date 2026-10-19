@@ -29,6 +29,7 @@ def run():
         'I build at the intersection of intelligent machines and visual data.':'I build circuits, control systems and learning pipelines.',
         'Control loops for autonomous robots. Learning pipelines for large images.':'Verified SAR logic. Online analog simulation. Reproducible experiments.',
         'Robotics · control engineering · computer vision · representation learning':'Mixed-signal design · RTL verification · controls · computer vision',
+        'About Abhitesh: robotics, control engineering, computer vision, and representation learning.':'About Abhitesh: mixed-signal conversion, verified RTL, controls and computer vision.',
         'Traction-aware autonomy and efficient high-resolution image pipelines':'SAR conversion, traction-aware autonomy and visual learning',
         "['AUTONOMY', 'traction-aware-amr', 'motion + estimation', 'PI / LQR / nonlinear control', 'ROS 2 + simulation + PCB'],":"['MIXED-SIGNAL', '8-bit SAR ADC', 'charge + decisions', 'SystemVerilog + SKY130', 'online circuits + verification'],",
         "['VISION', 'satellite segmentation', 'pixels + context', 'Residual U-Net + dilations', 'patches + TTA + reconstruction'],":"['AUTONOMY', 'traction-aware-amr', 'motion + estimation', 'PI / LQR / nonlinear control', 'ROS 2 + simulation + PCB'],",
@@ -55,7 +56,9 @@ def run():
     if 'data-filter="circuits"' not in html:
         html=html.replace('<button type="button" data-filter="robotics"', '<button type="button" data-filter="circuits" aria-pressed="false">Circuits &amp; RTL</button><button type="button" data-filter="robotics"',1)
     html=html.replace('04 PROJECTS','05 PROJECTS')
+    html=html.replace('All work <span>04</span>','All work <span>05</span>')
     html=html.replace('ROBOTICS · VISION · DECISION SYSTEMS','MIXED-SIGNAL · ROBOTICS · VISION')
+    html=html.replace('CONTROL ENGINEERING / COMPUTER VISION / OPTIMIZATION','MIXED-SIGNAL / CONTROL ENGINEERING / COMPUTER VISION')
     html=html.replace('My projects connect control engineering, computer vision and optimization.','My projects connect mixed-signal design, control engineering, computer vision and optimization.')
     if '<dt>Digital design</dt>' not in html:
         html=html.replace('<div><dt>Hardware</dt>', '<div><dt>Digital design</dt><dd>SystemVerilog · Yosys · OpenSTA</dd></div><div><dt>Hardware</dt>',1)
