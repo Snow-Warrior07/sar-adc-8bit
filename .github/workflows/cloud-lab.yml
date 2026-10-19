@@ -1,10 +1,17 @@
 name: Online engineering lab
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        description: Engineering stages to execute
+        default: all
+        options: [all, timing]
 permissions:
   contents: read
 jobs:
   engineering:
+    if: inputs.mode != 'timing'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -22,7 +29,9 @@ jobs:
       - name: Run online circuit measurements
         run: python -m tools.cloud_spice
       - name: Run RTL verification
-        run: python -m tools.verify_rtl --quick
+        run: |
+          python -m tools.verify_rtl --quick
+          python -m tools.verify_variants
       - name: Synthesize and analyze timing
         run: python -m tools.synthesize --no-sta
       - uses: actions/upload-artifact@v4
@@ -46,7 +55,7 @@ jobs:
       - name: Build pinned OpenSTA and dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y yosys cmake g++ tcl-dev libeigen3-dev swig bison flex zlib1g-dev libfmt-dev libgtest-dev autoconf automake libtool
+          sudo apt-get install -y yosys cmake g++ tcl-dev libeigen3-dev swig bison flex libfl-dev zlib1g-dev libfmt-dev libgtest-dev autoconf automake libtool
           python -m pip install numpy PyYAML
           mkdir -p .tools
           git clone --depth 1 --branch 3.0.0 https://github.com/cuddorg/cudd.git .tools/cudd
@@ -58,7 +67,7 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           git clone https://github.com/The-OpenROAD-Project/OpenSTA.git .tools/OpenSTA
           git -C .tools/OpenSTA checkout 0f2529d18218b87aa0e82de444395a830d5058a1
-          cmake -S .tools/OpenSTA -B .tools/OpenSTA/build -DCMAKE_BUILD_TYPE=Release -DCUDD_DIR="$GITHUB_WORKSPACE/.tools/cudd-install"
+          cmake -S .tools/OpenSTA -B .tools/OpenSTA/build -DCMAKE_BUILD_TYPE=Release -DFLEX_INCLUDE_DIR=/usr/include -DCUDD_DIR="$GITHUB_WORKSPACE/.tools/cudd-install"
           cmake --build .tools/OpenSTA/build -j4
           sudo install .tools/OpenSTA/build/sta /usr/local/bin/sta
       - name: Constrained SKY130 synthesis and timing

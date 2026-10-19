@@ -29,7 +29,7 @@ def api(route,method='GET',data=None,binary=False):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['create','dispatch','runs','jobs','logs','artifacts','download','pages','enable-pages','verify']);p.add_argument('--id',type=int,default=0)
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['create','dispatch','runs','jobs','logs','artifacts','download','pages','enable-pages','verify']);p.add_argument('--id',type=int,default=0);p.add_argument('--mode',choices=['all','timing'],default='all')
     a=p.parse_args();base=f'/repos/{OWNER}/{REPO}'
     user=api('/user')
     if user['login']!=OWNER:raise RuntimeError('Authenticated account does not match project owner')
@@ -39,7 +39,7 @@ def main():
             if 'HTTP 404' not in str(e):raise
             r=api('/user/repos','POST',{'name':REPO,'private':False,'description':'8-bit differential SAR ADC: verified RTL, analog models, online SPICE characterization and reproducible results.'})
         print(json.dumps({'url':r['html_url'],'private':r['private'],'default_branch':r['default_branch']}))
-    elif a.action=='dispatch':print(json.dumps(api(base+'/actions/workflows/cloud-lab.yml/dispatches','POST',{'ref':'main'})))
+    elif a.action=='dispatch':print(json.dumps(api(base+'/actions/workflows/cloud-lab.yml/dispatches','POST',{'ref':'main','inputs':{'mode':a.mode}})))
     elif a.action=='runs':
         r=api(base+'/actions/runs?per_page=5')
         print(json.dumps([{k:x.get(k) for k in ['id','status','conclusion','html_url','head_sha']} for x in r['workflow_runs']],indent=2))

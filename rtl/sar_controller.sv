@@ -10,7 +10,7 @@ module sar_controller (
 );
     localparam IDLE=3'd0, ACQUIRE=3'd1, HOLD=3'd2, SET=3'd3,
                SETTLE=3'd4, EVAL=3'd5, DONE=3'd6;
-    (* fsm_encoding = "auto" *) reg [2:0] state;
+    reg [2:0] state;
     reg [2:0] acquisition_count;
     reg [2:0] bit_index;
     reg [7:0] working;

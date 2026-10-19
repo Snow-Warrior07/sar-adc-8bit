@@ -3,6 +3,9 @@
 __pycache__/
 .pytest_cache/
 build/
+results/cloud/
+results/ci/
+analog/spice/modelcard.skywater
 *.vcd
 *.fst
 results/raw/*.log

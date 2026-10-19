@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "one_hot_conversions": 768,
+  "reset_states": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "latency_cycles": 31,
+  "source": "rtl/sar_controller_onehot.sv",
+  "implementation": "Explicit one-hot state register with external debug decoding; no reliance on automatic recoding."
+}

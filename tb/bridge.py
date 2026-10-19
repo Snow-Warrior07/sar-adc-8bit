@@ -15,13 +15,13 @@ class Snapshot:
 
 
 class Bridge:
-    def __init__(self,waves=False):
+    def __init__(self,waves=False,rtl_source='rtl/sar_controller.sv'):
         build=ROOT/'build';build.mkdir(exist_ok=True)
         self.image=build/'interactive.vvp'
         ivl_base=ROOT/'.tools'/'oss-cad-suite'/'lib'/'ivl'
         compiler_options=['-B',str(ivl_base)] if ivl_base.exists() else []
         subprocess.run([executable('iverilog')]+compiler_options+['-g2012','-s','interactive_tb','-o',str(self.image),
-                        'rtl/sar_controller.sv','tb/interactive_tb.sv'],cwd=ROOT,env=tool_env(),check=True,capture_output=True,text=True)
+                        rtl_source,'tb/interactive_tb.sv'],cwd=ROOT,env=tool_env(),check=True,capture_output=True,text=True)
         self.p=subprocess.Popen([executable('vvp'),str(self.image)]+(['+waves'] if waves else []),
                      cwd=ROOT,env=tool_env(),stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,bufsize=1)
         self.snapshot=self._read()

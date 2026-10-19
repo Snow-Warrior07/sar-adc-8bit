@@ -3,7 +3,7 @@
 Capacitor errors are fixed unit realizations. Noise is sampled once per physical
 event. The reference network is an equivalent differential RC approximation.
 """
-from dataclasses import dataclass,asdict
+from dataclasses import dataclass,asdict,field
 import math
 import numpy as np
 
@@ -27,6 +27,8 @@ class AnalogConfig:
     delay_base_s:float=0.0
     delay_log_s:float=0.0
     delay_floor_v:float=1e-6
+    delay_points_v:list=field(default_factory=list)
+    delay_points_s:list=field(default_factory=list)
     capture_margin_s:float=5e-9
     fidelity:str='behavioural; parameters explicitly assumed'
 
@@ -100,7 +102,13 @@ class AnalogFrontEnd:
         residual=held-self.dac_state+c.comparator_offset_v+noise
         self.last_residual=residual
         overdrive=max(abs(residual),c.delay_floor_v)
-        self.last_delay=c.delay_base_s+c.delay_log_s*max(0.,math.log(LSB/overdrive))
+        if c.delay_points_v:
+            xp=np.log(c.delay_points_v);fp=np.asarray(c.delay_points_s)
+            z=math.log(overdrive)
+            self.last_delay=float(np.interp(z,xp,fp))
+            if z<xp[0]:
+                self.last_delay=float(fp[0]+(z-xp[0])*(fp[1]-fp[0])/(xp[1]-xp[0]))
+        else:self.last_delay=c.delay_base_s+c.delay_log_s*max(0.,math.log(LSB/overdrive))
         if self.last_delay>TCLK-c.capture_margin_s:
             self.timeouts+=1
             raise TimeoutError('Comparator decision exceeds its capture deadline')

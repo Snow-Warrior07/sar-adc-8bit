@@ -1,0 +1,36 @@
+{
+  "held_out_delay": [
+    {
+      "overdrive_v": 0.0009765625,
+      "predicted_s": 5.590358215279115e-10,
+      "measured_s": 5.61988e-10,
+      "relative_error": 0.005253098770949731
+    },
+    {
+      "overdrive_v": 0.00390625,
+      "predicted_s": 5.229566666666667e-10,
+      "measured_s": 5.293151e-10,
+      "relative_error": 0.012012567435414647
+    }
+  ],
+  "settling_voltage_errors_v": [
+    8.979095245109647e-11,
+    2.5000890246928975e-11
+  ],
+  "provenance": {
+    "calibrated": [
+      "lumped acquisition tau",
+      "lumped DAC-driver tau",
+      "nominal comparator delay versus overdrive"
+    ],
+    "assumed": [
+      "unit-capacitor mismatch",
+      "comparator offset",
+      "random comparator noise",
+      "sample noise",
+      "leakage",
+      "equivalent reference impedance"
+    ],
+    "coverage": "Delay interpolation validated on positive overdrives at VCM 0.9 V, VDD 1.8 V, 27 C. Below-range logarithmic extrapolation and above-range clamping are conservative modelling assumptions, not SPICE validation."
+  }
+}

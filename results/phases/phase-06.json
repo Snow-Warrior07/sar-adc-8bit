@@ -1,0 +1,46 @@
+{
+  "phase": 6,
+  "name": "SPICE-derived model with actual RTL",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "held-out comparator-delay predictions",
+      "passed": true,
+      "max_relative_error": 0.012012567435414647,
+      "cases": 2
+    },
+    {
+      "name": "held-out lumped settling-voltage prediction",
+      "passed": true,
+      "max_error_v": 8.979095245109647e-11
+    },
+    {
+      "name": "integrated actual-RTL regression",
+      "passed": true,
+      "conversions": 256,
+      "max_code_error": 1
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "executed_at_utc": "2026-10-19T09:40:15Z",
+  "fidelity": "Actual RTL plus reduced-order analog model; RC and SKY130 comparator delay characterized online; mismatch/noise/leakage/reference impedance assumed",
+  "provenance": {
+    "calibrated": [
+      "lumped acquisition tau",
+      "lumped DAC-driver tau",
+      "nominal comparator delay versus overdrive"
+    ],
+    "assumed": [
+      "unit-capacitor mismatch",
+      "comparator offset",
+      "random comparator noise",
+      "sample noise",
+      "leakage",
+      "equivalent reference impedance"
+    ],
+    "coverage": "Delay interpolation validated on positive overdrives at VCM 0.9 V, VDD 1.8 V, 27 C. Below-range logarithmic extrapolation and above-range clamping are conservative modelling assumptions, not SPICE validation."
+  }
+}

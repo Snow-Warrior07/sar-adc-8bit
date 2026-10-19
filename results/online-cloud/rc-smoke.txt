@@ -1,0 +1,43 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: rc measured
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+in                                           0
+out                                          0
+v1#branch                                    0
+
+
+No. of Data Rows : 1019
+
+  Measurements for Transient Analysis
+
+tc                  =   2.00050e-06
+final               =  9.996644e-01
+
+
+Total analysis time (seconds) = 0.003
+
+Total elapsed time (seconds) = 0.005 
+
+Total DRAM available = 15989.699 MB.
+DRAM currently available = 11793.930 MB.
+Maximum ngspice program size =   21.367 MB.
+Current ngspice program size =   12.789 MB.
+
+Shared ngspice pages =   10.816 MB.
+Text (code) pages =    6.156 MB.
+Stack = 0 bytes.
+Library pages =    2.109 MB.
+
+
+Using SPARSE 1.3 as Direct Linear Solver

@@ -1,12 +1,14 @@
 import argparse,hashlib,json,re,shutil,subprocess,urllib.request
 from pathlib import Path
 from tools.common import ROOT,executable,tool_env,save,phase
+from tools.generate_variants import run as generate_variants
 
 LIB_REV='7bcaf475c884e15f674e428aa04dbf92bd0426ed'
 LIB_URL='https://raw.githubusercontent.com/The-OpenROAD-Project/OpenROAD-flow-scripts/'+LIB_REV+'/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'
 
 
 def run(no_sta=False):
+    generate_variants()
     build=ROOT/'build';build.mkdir(exist_ok=True)
     folder=ROOT/'.tools';folder.mkdir(exist_ok=True)
     lib=folder/'sky130_fd_sc_hd__tt_025C_1v80.lib'
@@ -16,12 +18,13 @@ def run(no_sta=False):
     results={}
     for encoding in ['binary','one-hot']:
         variant=encoding.replace('-','_')
+        source='rtl/sar_controller.sv' if encoding=='binary' else 'rtl/sar_controller_onehot.sv'
         commands=f'''read_liberty -lib {libpath}
-read_verilog -sv rtl/sar_controller.sv
+read_verilog -sv {source}
 hierarchy -check -top sar_controller
 proc
 opt
-fsm -encoding {encoding}
+fsm -norecode
 opt
 techmap
 opt
@@ -41,7 +44,7 @@ write_verilog -noattr -noexpr build/{variant}.v
         cells=module.get('num_cells_by_type',{})
         assert not any('latch' in c.lower() or 'dlxt' in c.lower() for c in cells)
         results[encoding]={'cell_count':module.get('num_cells'),'area_um2':module.get('area',module.get('cell_area')),
-                           'cells':cells,'timing':None}
+                           'cells':cells,'timing':None,'source':source}
         if not no_sta:
             if not shutil.which('sta'):raise RuntimeError('OpenSTA executable required for timing phase')
             sdc='''create_clock -name core_clk -period 312.5 [get_ports clk]
