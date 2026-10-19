@@ -46,7 +46,7 @@ jobs:
       - name: Build pinned OpenSTA and dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y yosys cmake g++ tcl-dev libeigen3-dev swig bison flex zlib1g-dev libfmt-dev autoconf automake libtool
+          sudo apt-get install -y yosys cmake g++ tcl-dev libeigen3-dev swig bison flex zlib1g-dev libfmt-dev libgtest-dev autoconf automake libtool
           python -m pip install numpy PyYAML
           mkdir -p .tools
           git clone --depth 1 --branch 3.0.0 https://github.com/cuddorg/cudd.git .tools/cudd

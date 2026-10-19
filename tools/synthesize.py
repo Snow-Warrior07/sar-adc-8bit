@@ -16,7 +16,8 @@ def run(no_sta=False):
     results={}
     for encoding in ['binary','one-hot']:
         variant=encoding.replace('-','_')
-        commands=f'''read_verilog -sv rtl/sar_controller.sv
+        commands=f'''read_liberty -lib {libpath}
+read_verilog -sv rtl/sar_controller.sv
 hierarchy -check -top sar_controller
 proc
 opt
@@ -36,7 +37,7 @@ write_verilog -noattr -noexpr build/{variant}.v
         (build/(variant+'-synth.log')).write_text(r.stdout+'\n'+r.stderr,encoding='utf-8')
         if r.returncode:raise RuntimeError('Synthesis failed: '+(r.stdout+r.stderr)[-2000:])
         raw=json.loads((build/(variant+'.json')).read_text())
-        module=next(iter(raw['modules'].values()))
+        module=next(v for k,v in raw['modules'].items() if k.lstrip('\\')=='sar_controller')
         cells=module.get('num_cells_by_type',{})
         assert not any('latch' in c.lower() or 'dlxt' in c.lower() for c in cells)
         results[encoding]={'cell_count':module.get('num_cells'),'area_um2':module.get('area',module.get('cell_area')),
@@ -44,7 +45,8 @@ write_verilog -noattr -noexpr build/{variant}.v
         if not no_sta:
             if not shutil.which('sta'):raise RuntimeError('OpenSTA executable required for timing phase')
             sdc='''create_clock -name core_clk -period 312.5 [get_ports clk]
-set_clock_uncertainty 0.5 [get_clocks core_clk]
+set_clock_uncertainty -setup 0.5 [get_clocks core_clk]
+set_clock_uncertainty -hold 0.05 [get_clocks core_clk]
 set_input_delay -clock core_clk -max 20.0 [get_ports {start cmp_keep rst_n}]
 set_input_delay -clock core_clk -min 0.2 [get_ports {start cmp_keep rst_n}]
 set_input_transition 0.2 [get_ports {start cmp_keep rst_n}]
