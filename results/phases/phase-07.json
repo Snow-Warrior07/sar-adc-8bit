@@ -1,0 +1,40 @@
+{
+  "phase": 7,
+  "name": "Static, dynamic and sensitivity characterization",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "nominal static DNL target",
+      "passed": true,
+      "measured_lsb": 0.04051941251206059
+    },
+    {
+      "name": "nominal endpoint INL target",
+      "passed": true,
+      "measured_lsb": 0.03794380374622599
+    },
+    {
+      "name": "monotonic and all 256 codes observed",
+      "passed": true
+    },
+    {
+      "name": "low-frequency uncorrected ENOB target",
+      "passed": true,
+      "enob": 7.890096453982224,
+      "sinad_db": 49.25838065297298
+    },
+    {
+      "name": "both dynamic records use actual RTL",
+      "passed": true,
+      "samples_per_record": 4096
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "executed_at_utc": "2026-10-19T09:41:53Z",
+  "wall_seconds": 38.59979295730591,
+  "higher_frequency_enob": 7.895804606200157,
+  "fidelity": "Actual RTL plus reduced-order analog model; RC and SKY130 comparator delay characterized online; mismatch/noise/leakage/reference impedance assumed"
+}

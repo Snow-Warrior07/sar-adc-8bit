@@ -33,6 +33,25 @@
       },
       "netlist_sha256": "53a177337d5276add357786ffc5c5d67e31d1973beb9d9a64d134facbeb5491f"
     },
+    "cdac-mos.cir": {
+      "returncode": 0,
+      "measurements": {
+        "tp_0": 0.8949187,
+        "tn_0": 0.9049172,
+        "tp_1": 0.8374274,
+        "tn_1": 0.9624084,
+        "tp_2": 0.8979651,
+        "tn_2": 0.9018708,
+        "tp_3": 0.8999179,
+        "tn_3": 0.8999179,
+        "tp_4": 0.9002148,
+        "tn_4": 0.8996211,
+        "tp_5": 0.9029643,
+        "tn_5": 0.8968715,
+        "Stack": 0.0
+      },
+      "netlist_sha256": "0b0a20f422a6d7c2b693dfb96e23a92c7d7a8457f5bc784178e8d6aec913e8b9"
+    },
     "comparator-0c.cir": {
       "returncode": 0,
       "measurements": {

@@ -28,17 +28,23 @@
       "passed": true,
       "acquisition_tau_s": 5.120000000000015e-08,
       "dac_driver_tau_s": 2.5600000000000127e-08
+    },
+    {
+      "name": "six SKY130 transmission-gate sampled-CDAC cases",
+      "passed": true,
+      "max_differential_error_v": 1.8999999999991246e-05,
+      "tolerance_lsb": 0.1
     }
   ],
   "environment": {
     "python": "3.12.14",
     "platform": "Windows-11-10.0.26300-SP0"
   },
-  "executed_at_utc": "2026-10-19T09:40:13Z",
+  "executed_at_utc": "2026-10-19T09:54:06Z",
   "provenance": {
-    "workflow_url": "https://github.com/Snow-Warrior07/sar-adc-8bit/actions/runs/39231164889",
-    "workflow_commit": "0fdbc2c",
-    "artifact_id": 12177535247,
+    "workflow_url": "https://github.com/Snow-Warrior07/sar-adc-8bit/actions/runs/39232946308",
+    "workflow_commit": "3bc4f2b16c719f4ab6a9cddf32a4d0da50544cd2",
+    "artifact_id": 12176942873,
     "execution": "GitHub-hosted Ubuntu online runner",
     "engine": "******\n** ngspice-42 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2023, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Mar 31 20:15:14 UTC 2024\n******\n",
     "models": {

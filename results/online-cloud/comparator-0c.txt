@@ -196,17 +196,18 @@ vip0#branch                                  0
 vdd0#branch                       -1.34692e-11
 
  Reference value :  0.00000e+00
- Reference value :  7.40560e-09
- Reference value :  1.49456e-08
- Reference value :  2.15900e-08
- Reference value :  2.79700e-08
- Reference value :  3.55300e-08
- Reference value :  4.24500e-08
- Reference value :  4.99900e-08
- Reference value :  5.74500e-08
- Reference value :  6.38500e-08
- Reference value :  7.01300e-08
- Reference value :  7.42900e-08
+ Reference value :  7.10560e-09
+ Reference value :  1.31456e-08
+ Reference value :  2.00700e-08
+ Reference value :  2.51700e-08
+ Reference value :  3.26500e-08
+ Reference value :  4.01140e-08
+ Reference value :  4.70500e-08
+ Reference value :  5.46300e-08
+ Reference value :  6.13700e-08
+ Reference value :  6.84900e-08
+ Reference value :  7.37700e-08
+ Reference value :  7.98500e-08
 No. of Data Rows : 4026
 
   Measurements for Transient Analysis
@@ -269,16 +270,16 @@ on_13               =  4.184099e-08
 charge_13           =   -2.79128e-14 from=  2.00000e-08 to=  4.00000e-08
 
 
-Total analysis time (seconds) = 1.501
+Total analysis time (seconds) = 1.513
 
-Total elapsed time (seconds) = 3.011 
+Total elapsed time (seconds) = 2.991 
 
 Total DRAM available = 15989.699 MB.
-DRAM currently available = 11661.480 MB.
+DRAM currently available = 11718.586 MB.
 Maximum ngspice program size =   92.012 MB.
-Current ngspice program size =   68.000 MB.
+Current ngspice program size =   67.801 MB.
 
-Shared ngspice pages =   11.359 MB.
+Shared ngspice pages =   11.160 MB.
 Text (code) pages =    6.156 MB.
 Stack = 0 bytes.
 Library pages =   72.750 MB.
