@@ -1,0 +1,29 @@
+{
+  "phase": 0,
+  "name": "Tools and online circuit smoke test",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Icarus and Yosys start",
+      "passed": true,
+      "versions": {
+        "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-585-gf190dbb26-dirty)",
+        "yosys": "Yosys 0.70+157 (git sha1 af9f71e51, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)"
+      }
+    },
+    {
+      "name": "online ngspice RC time constant",
+      "passed": true,
+      "measured_tau_s": 1.0005000000000002e-06,
+      "expected_tau_s": 1e-06,
+      "relative_error_percent": 0.0500000000000167,
+      "source": "results/online/rc-smoke.txt",
+      "execution": "https://gen1.eecircuit.com/; ngspice-45.2 WASM"
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "executed_at_utc": "2026-10-19T09:33:26Z"
+}

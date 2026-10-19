@@ -4,7 +4,8 @@ SKY130 comparator characterization
 .temp 85
 
 .subckt comparator ip inn clk vdd op on
-Xtail tail clk 0 0 sky130_fd_pr__nfet_01v8 W=3.36u L=0.15u
+Xtail0 tail clk 0 0 sky130_fd_pr__nfet_01v8 W=1.68u L=0.15u
+Xtail1 tail clk 0 0 sky130_fd_pr__nfet_01v8 W=1.68u L=0.15u
 X1 xp ip tail 0 sky130_fd_pr__nfet_01v8 W=1.68u L=0.15u
 X2 xn inn tail 0 sky130_fd_pr__nfet_01v8 W=1.68u L=0.15u
 Xn1 on op xp 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
