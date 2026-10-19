@@ -6,7 +6,7 @@ This avoids a platform-specific VPI installation; it is not an RTL reimplementat
 from dataclasses import dataclass
 from pathlib import Path
 import subprocess
-from tools.common import ROOT,executable,tool_env
+from tools.common import ROOT,TOOLCHAIN,executable,tool_env
 
 
 @dataclass
@@ -18,7 +18,7 @@ class Bridge:
     def __init__(self,waves=False,rtl_source='rtl/sar_controller.sv'):
         build=ROOT/'build';build.mkdir(exist_ok=True)
         self.image=build/'interactive.vvp'
-        ivl_base=ROOT/'.tools'/'oss-cad-suite'/'lib'/'ivl'
+        ivl_base=TOOLCHAIN/'lib'/'ivl'
         compiler_options=['-B',str(ivl_base)] if ivl_base.exists() else []
         subprocess.run([executable('iverilog')]+compiler_options+['-g2012','-s','interactive_tb','-o',str(self.image),
                         rtl_source,'tb/interactive_tb.sv'],cwd=ROOT,env=tool_env(),check=True,capture_output=True,text=True)

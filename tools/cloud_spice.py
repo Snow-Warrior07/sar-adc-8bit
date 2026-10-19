@@ -1,5 +1,5 @@
 """Run only on the online Linux runner: no local native circuit measurements."""
-import hashlib,json,re,subprocess,urllib.request
+import hashlib,json,re,subprocess,urllib.request,os
 from pathlib import Path
 from tools.common import ROOT,save
 from tools.generate_circuits import run as generate
@@ -39,6 +39,10 @@ def run():
         if r.returncode or not vals:raise RuntimeError('Online circuit bench failed: '+path.name+'\n'+log[-2000:])
     save('results/online-cloud/summary.json',{'execution':'GitHub-hosted Ubuntu online runner','engine':version,
                                            'models':provenance,'benches':reports})
+    if os.environ.get('GITHUB_RUN_ID'):
+        save('results/online-cloud/artifact-receipt.json',{'artifact_id':None,
+             'workflow_url':'https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'],
+             'workflow_run':{'id':int(os.environ['GITHUB_RUN_ID']),'head_sha':os.environ['GITHUB_SHA']}})
 
 
 if __name__=='__main__':run()

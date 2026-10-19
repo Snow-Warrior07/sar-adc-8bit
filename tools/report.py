@@ -141,6 +141,8 @@ The comparator keeps a trial when top N is at least top P. The final LSB decisio
 
 The online runner used ngspice with the pinned EEcircuit SKY130 model port. Forty-two comparator operating points cover both input polarities, overdrives from 0.1 to 4 LSB, selected input common modes, supplies and temperatures. The largest measured decision delay was 1.513 ns. A 10 ps versus 20 ps timestep comparison changed delay by at most 0.1521%. Ideal CDAC charge residuals matched the derived equation within 50 nV for six cases. Additional MOS sampling-clamp results are retained when available.
 
+The corrected SKY130 transmission-gate sampling-clamp bench matched the differential charge result within 19 uV (0.0049 LSB) across its six cases. An initial gate/source wiring error and its failed measurements are retained in the experiment log.
+
 The lumped 5.12 pF acquisition and driver benches identified 51.2 ns and 25.6 ns time constants. This validates a reduced-order RC approximation, not all settling mechanisms of an assembled ADC. Held-out comparator delay predictions had at most 1.2013% relative error. Calibration does not establish random noise, process variation or layout behaviour.
 
 ## Model coverage

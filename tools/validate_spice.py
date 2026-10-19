@@ -52,8 +52,9 @@ def run():
             i=c['index'];mos_errors.append(abs(mos[f'tp_{i}']-mos[f'tn_{i}']-c['expected_residual_v']))
         checks.append({'name':'six SKY130 transmission-gate sampled-CDAC cases','passed':max(mos_errors)<.1/256,
                        'max_differential_error_v':max(mos_errors),'tolerance_lsb':.1})
-    phase(5,'Online circuit characterization',checks,
+    gate=phase(5,'Online circuit characterization',checks,
         {'provenance':source_data,'process_scope':'Nominal EEcircuit SKY130 port; voltage and temperature sweeps only; no foundry process-corner or mismatch qualification.'})
+    if gate['status']!='passed':raise RuntimeError('Online circuit measurements failed a phase-five gate')
     training=[0,2,4];heldout=[1,3]
     x=[manifest['comparator-27c.cir'][i]['differential_v'] for i in training]
     y=[nominal[f'delay_{i}'] for i in training]

@@ -1,6 +1,7 @@
 import json,os,platform,subprocess,sys,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+TOOLCHAIN=Path(os.environ.get('SAR_ADC_TOOLCHAIN',str(ROOT/'.tools'/'oss-cad-suite')))
 
 
 def save(path,data):
@@ -20,11 +21,11 @@ def phase(number,name,checks,extra=None):
 
 def executable(name):
     import shutil
-    local=ROOT/'.tools'/'oss-cad-suite'/'bin'/(name+'.exe' if os.name=='nt' else name)
+    local=TOOLCHAIN/'bin'/(name+'.exe' if os.name=='nt' else name)
     return str(local) if local.exists() else shutil.which(name)
 
 
 def tool_env():
     env=dict(os.environ)
-    env['PATH']=str(ROOT/'.tools'/'oss-cad-suite'/'bin')+os.pathsep+str(ROOT/'.tools'/'oss-cad-suite'/'lib')+os.pathsep+env.get('PATH','')
+    env['PATH']=str(TOOLCHAIN/'bin')+os.pathsep+str(TOOLCHAIN/'lib')+os.pathsep+env.get('PATH','')
     return env

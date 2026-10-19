@@ -15,3 +15,7 @@ Early cloud runs stopped because OpenSTA is not packaged in the selected Ubuntu 
 ## FSM implementation comparison
 
 Automatic recoding did not extract the exported/debugged FSM reliably. The comparison therefore uses explicit binary and one-hot RTL implementations, each simulated against the same expected conversion and timing contract. Area includes the external debug decoding in both variants.
+
+## Reset-removal timing contract
+
+The first pre-layout timing run allowed reset deassertion 0.2 ns after a rising edge. OpenSTA reported -0.200661 ns worst removal slack, although ordinary data setup/hold paths passed. The functional bridge already changes reset at a falling edge. The corrected SDC expresses that external falling-edge reset-release contract explicitly, with 0-0.25 ns input delay relative to the falling edge. Recovery/removal checks remain enabled. The original report and constraints are retained in results/failures/reset-removal-initial/.

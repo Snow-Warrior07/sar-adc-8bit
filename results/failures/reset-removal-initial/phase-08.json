@@ -1,0 +1,122 @@
+{
+  "phase": 8,
+  "name": "SKY130 synthesis and pre-layout static timing",
+  "status": "failed",
+  "checks": [
+    {
+      "name": "mapped controller; no unintended latches",
+      "passed": true
+    },
+    {
+      "name": "OpenSTA timing reports produced",
+      "passed": true
+    },
+    {
+      "name": "setup and hold slack nonnegative",
+      "passed": false,
+      "slack_values_ns": [
+        291.080353,
+        -0.200661,
+        291.176422,
+        -0.200661
+      ]
+    }
+  ],
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39"
+  },
+  "executed_at_utc": "2026-10-19T09:55:29Z",
+  "library_url": "https://raw.githubusercontent.com/The-OpenROAD-Project/OpenROAD-flow-scripts/7bcaf475c884e15f674e428aa04dbf92bd0426ed/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+  "library_sha256": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9",
+  "corner": "SKY130 HD TT 25C 1.80 V",
+  "variants": {
+    "binary": {
+      "cell_count": 127,
+      "area_um2": 1277.4752,
+      "cells": {
+        "sky130_fd_sc_hd__a2111oi_0": 1,
+        "sky130_fd_sc_hd__a211o_1": 1,
+        "sky130_fd_sc_hd__a21o_1": 1,
+        "sky130_fd_sc_hd__a21oi_1": 9,
+        "sky130_fd_sc_hd__a221o_1": 1,
+        "sky130_fd_sc_hd__a22o_1": 1,
+        "sky130_fd_sc_hd__a31oi_1": 2,
+        "sky130_fd_sc_hd__a32oi_1": 7,
+        "sky130_fd_sc_hd__and3b_1": 1,
+        "sky130_fd_sc_hd__clkinv_1": 11,
+        "sky130_fd_sc_hd__dfrtp_1": 22,
+        "sky130_fd_sc_hd__dfstp_2": 3,
+        "sky130_fd_sc_hd__lpflow_inputiso1p_1": 1,
+        "sky130_fd_sc_hd__mux2_1": 1,
+        "sky130_fd_sc_hd__mux2i_1": 7,
+        "sky130_fd_sc_hd__nand2_1": 7,
+        "sky130_fd_sc_hd__nand3_1": 1,
+        "sky130_fd_sc_hd__nand3b_1": 6,
+        "sky130_fd_sc_hd__nand4_1": 1,
+        "sky130_fd_sc_hd__nor2_1": 17,
+        "sky130_fd_sc_hd__nor2b_1": 1,
+        "sky130_fd_sc_hd__nor3_1": 4,
+        "sky130_fd_sc_hd__nor4b_1": 1,
+        "sky130_fd_sc_hd__o211ai_1": 1,
+        "sky130_fd_sc_hd__o21ai_0": 1,
+        "sky130_fd_sc_hd__o21ba_1": 1,
+        "sky130_fd_sc_hd__o22ai_1": 1,
+        "sky130_fd_sc_hd__o2bb2ai_1": 7,
+        "sky130_fd_sc_hd__o41ai_1": 1,
+        "sky130_fd_sc_hd__or3_1": 1,
+        "sky130_fd_sc_hd__or3b_1": 6,
+        "sky130_fd_sc_hd__xor2_1": 1
+      },
+      "timing": {
+        "worst_slack_values_ns": [
+          291.080353,
+          -0.200661
+        ],
+        "scope": "pre-layout; ideal clock; no extracted interconnect; 20 ns max comparator input delay assumption",
+        "log": "build/binary-sta.log"
+      },
+      "source": "rtl/sar_controller.sv"
+    },
+    "one-hot": {
+      "cell_count": 138,
+      "area_um2": 1355.0496,
+      "cells": {
+        "sky130_fd_sc_hd__a21o_1": 2,
+        "sky130_fd_sc_hd__a21oi_1": 9,
+        "sky130_fd_sc_hd__a31oi_1": 5,
+        "sky130_fd_sc_hd__and2_0": 3,
+        "sky130_fd_sc_hd__and3b_1": 1,
+        "sky130_fd_sc_hd__and4b_1": 1,
+        "sky130_fd_sc_hd__clkinv_1": 6,
+        "sky130_fd_sc_hd__dfrtp_1": 25,
+        "sky130_fd_sc_hd__dfstp_2": 4,
+        "sky130_fd_sc_hd__mux2i_1": 10,
+        "sky130_fd_sc_hd__nand2_1": 16,
+        "sky130_fd_sc_hd__nand3_1": 4,
+        "sky130_fd_sc_hd__nand4_1": 1,
+        "sky130_fd_sc_hd__nor2_1": 13,
+        "sky130_fd_sc_hd__nor3_1": 9,
+        "sky130_fd_sc_hd__nor4_1": 1,
+        "sky130_fd_sc_hd__nor4b_1": 4,
+        "sky130_fd_sc_hd__o211ai_1": 1,
+        "sky130_fd_sc_hd__o21a_1": 5,
+        "sky130_fd_sc_hd__o21ai_0": 13,
+        "sky130_fd_sc_hd__o22ai_1": 1,
+        "sky130_fd_sc_hd__o31ai_1": 1,
+        "sky130_fd_sc_hd__or4_1": 1,
+        "sky130_fd_sc_hd__or4b_1": 2
+      },
+      "timing": {
+        "worst_slack_values_ns": [
+          291.176422,
+          -0.200661
+        ],
+        "scope": "pre-layout; ideal clock; no extracted interconnect; 20 ns max comparator input delay assumption",
+        "log": "build/one_hot-sta.log"
+      },
+      "source": "rtl/sar_controller_onehot.sv"
+    }
+  },
+  "scope": "RTL controller only. Analog devices, reference circuits, clock tree, pads and routing excluded."
+}

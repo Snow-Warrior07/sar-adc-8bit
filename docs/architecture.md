@@ -12,6 +12,8 @@ All RTL is clocked by one 3.2 MHz clock. Start is accepted when ready is high. A
 
 The final LSB decision and completed output register update on the same edge. Data-valid is high during DONE for one period. The next conversion can enter ACQUIRE directly from DONE. The measured initiation interval is 32 periods, while the accepted-start edge to output-valid edge spans 31 periods (9.6875 us). This distinction is deliberate. The first sampling aperture occurs six periods after the accepted start.
 
+Reset assertion may be asynchronous. The external reset source must deassert at the falling core-clock edge (the timing model allows 0-0.25 ns after that edge), then hold reset inactive. This is the release phase used by the functional bridge. The SDC models this falling-edge relationship explicitly, and retains recovery/removal analysis. A reset source with arbitrary release timing needs a separate reset-release circuit before connecting to this core.
+
 DAC trials remain stable for 625 ns before evaluation. Comparator evaluation has 312.5 ns, minus receiver setup/interface margin. Reset aborts a conversion and clears the result/valid state. The integration contract requires reset release and comparator sampling to meet digital timing; this is not an asynchronous comparator CDC design.
 
 ## Verification bridge

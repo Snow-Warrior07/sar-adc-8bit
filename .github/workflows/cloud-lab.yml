@@ -27,7 +27,9 @@ jobs:
       - name: Reference tests
         run: python -m pytest -q
       - name: Run online circuit measurements
-        run: python -m tools.cloud_spice
+        run: |
+          python -m tools.cloud_spice
+          python -m tools.validate_spice
       - name: Run RTL verification
         run: |
           python -m tools.verify_rtl --quick
@@ -53,11 +55,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Build pinned OpenSTA and dependencies
+      - name: Install timing dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y yosys cmake g++ tcl-dev libeigen3-dev swig bison flex libfl-dev zlib1g-dev libfmt-dev libgtest-dev autoconf automake libtool
           python -m pip install numpy PyYAML
+      - uses: actions/cache/restore@v4
+        id: sta-cache
+        with:
+          path: .tools/OpenSTA/build/sta
+          key: opensta-ubuntu24-gcc13-0f2529d18218b87aa0e82de444395a830d5058a1
+      - name: Build pinned OpenSTA
+        if: steps.sta-cache.outputs.cache-hit != 'true'
+        run: |
           mkdir -p .tools
           git clone --depth 1 --branch 3.0.0 https://github.com/cuddorg/cudd.git .tools/cudd
           cd .tools/cudd
@@ -69,8 +79,15 @@ jobs:
           git clone https://github.com/The-OpenROAD-Project/OpenSTA.git .tools/OpenSTA
           git -C .tools/OpenSTA checkout 0f2529d18218b87aa0e82de444395a830d5058a1
           cmake -S .tools/OpenSTA -B .tools/OpenSTA/build -DCMAKE_BUILD_TYPE=Release -DFLEX_INCLUDE_DIR=/usr/include -DCUDD_DIR="$GITHUB_WORKSPACE/.tools/cudd-install"
-          cmake --build .tools/OpenSTA/build -j4
+          cmake --build .tools/OpenSTA/build --target sta -j4
+      - name: Install pinned OpenSTA binary
+        run: |
           sudo install .tools/OpenSTA/build/sta /usr/local/bin/sta
+      - uses: actions/cache/save@v4
+        if: steps.sta-cache.outputs.cache-hit != 'true'
+        with:
+          path: .tools/OpenSTA/build/sta
+          key: opensta-ubuntu24-gcc13-0f2529d18218b87aa0e82de444395a830d5058a1
       - name: Constrained SKY130 synthesis and timing
         run: python -m tools.synthesize
       - uses: actions/upload-artifact@v4
