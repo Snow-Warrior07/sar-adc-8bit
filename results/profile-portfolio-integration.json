@@ -1,13 +1,63 @@
 {
-  "status": "prepared",
-  "profile_projects": 5,
-  "project_url": "https://github.com/Snow-Warrior07/sar-adc-8bit",
-  "portfolio_url": "https://snow-warrior07.github.io/",
-  "measured_model_enob": 7.890096453982224,
-  "files": [
-    "profile.json",
-    "scripts/update-profile.mjs",
-    "dist/index.html",
-    "dist/assets/sar-adc-characterization.png"
-  ]
+  "status": "published-and-live-verified",
+  "verified_at_utc": "2026-10-19T10:14:35.508478+00:00",
+  "repositories": [
+    {
+      "repo": "sar-adc-8bit",
+      "sha": "25886e11ebc454b2ad77327940a84ba0dc824082",
+      "runs": [
+        {
+          "id": 39234186530,
+          "head_sha": "8769258e07fad6bd5768874188d1e383015c8bf2",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Snow-Warrior07/sar-adc-8bit/actions/runs/39234186530"
+        }
+      ]
+    },
+    {
+      "repo": "Snow-Warrior07",
+      "sha": "015cd2c347539d3df89b5eaf613e7cf173e6d7d1",
+      "runs": [
+        {
+          "id": 39235841404,
+          "head_sha": "01c7d7348d0d1b8a9f01827477899dfaa52949e1",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Snow-Warrior07/Snow-Warrior07/actions/runs/39235841404"
+        }
+      ]
+    },
+    {
+      "repo": "Snow-Warrior07.github.io",
+      "sha": "c936a0e68ecba51267b6d981eb313223a026cd73",
+      "runs": [
+        {
+          "id": 39235859004,
+          "head_sha": "c936a0e68ecba51267b6d981eb313223a026cd73",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Snow-Warrior07/Snow-Warrior07.github.io/actions/runs/39235859004"
+        }
+      ]
+    }
+  ],
+  "live_urls": [
+    "https://github.com/Snow-Warrior07/sar-adc-8bit",
+    "https://github.com/Snow-Warrior07",
+    "https://snow-warrior07.github.io/"
+  ],
+  "portfolio_checks": [
+    "Circuits & RTL filter selects one project",
+    "ADC image loaded at 1920 by 1200",
+    "ADC dialog opens and closes",
+    "No horizontal page overflow at 1280 px",
+    "Existing HTML and link validator passes"
+  ],
+  "profile_checks": [
+    "48 SVG files parse as XML",
+    "48 README image references resolve",
+    "Live profile shows latest ADC project and evidence"
+  ],
+  "screenshot": "publication/portfolio-live.jpg"
 }
