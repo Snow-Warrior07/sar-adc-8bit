@@ -84,7 +84,7 @@ def mos_cdac_deck():
     for i in range(len(manifest)):
         for side in ['p','n']:
             old=f'S{side}{i} t{side}{i} cm track 0 CLAMP'
-            new=f'X{side}{i}n t{side}{i} cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u\nX{side}{i}p t{side}{i} cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u'
+            new=f'X{side}{i}n t{side}{i} track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u\nX{side}{i}p t{side}{i} trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u'
             text=text.replace(old,new)
     return text,manifest
 

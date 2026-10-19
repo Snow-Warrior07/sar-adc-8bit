@@ -47,12 +47,19 @@ def main():
         r=api(base+f'/actions/runs/{a.id}/{a.action}')
         print(json.dumps([{k:x.get(k) for k in ['id','name','status','conclusion','html_url','size_in_bytes','steps']} for x in r[a.action]],indent=2))
     elif a.action=='download':
+        metadata=api(base+f'/actions/artifacts/{a.id}')
         raw=api(base+f'/actions/artifacts/{a.id}/zip',binary=True)
         dest=(ROOT/'results'/'cloud').resolve();dest.mkdir(parents=True,exist_ok=True)
         with zipfile.ZipFile(io.BytesIO(raw)) as z:
             for m in z.infolist():
                 if not (dest/m.filename).resolve().is_relative_to(dest):raise RuntimeError('Unsafe artifact path')
             z.extractall(dest)
+            names=set(z.namelist())
+        run=metadata.get('workflow_run',{})
+        receipt={'artifact_id':a.id,'artifact_name':metadata['name'],'workflow_run':run,
+                 'workflow_url':f"https://github.com/{OWNER}/{REPO}/actions/runs/{run.get('id')}"}
+        for suffix in ['results/online-cloud/summary.json','results/synthesis/summary.json']:
+            if suffix in names:(dest/suffix).with_name('artifact-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
         print(json.dumps({'destination':str(dest),'bytes':len(raw)}))
     elif a.action=='logs':
         raw=api(base+f'/actions/jobs/{a.id}/logs',binary=True).decode(errors='replace')

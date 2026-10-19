@@ -1,0 +1,64 @@
+{
+  "phase": 5,
+  "name": "Online circuit characterization",
+  "status": "failed",
+  "checks": [
+    {
+      "name": "42 SKY130 comparator operating points resolve with correct polarity",
+      "passed": true,
+      "cases": 42
+    },
+    {
+      "name": "comparator decisions fit the capture interval",
+      "passed": true,
+      "maximum_delay_s": 1.512649e-09
+    },
+    {
+      "name": "20 ps versus 10 ps timestep convergence",
+      "passed": true,
+      "max_relative_delay_change": 0.0015208981867248824
+    },
+    {
+      "name": "six differential sampled-CDAC charge cases",
+      "passed": true,
+      "max_residual_error_v": 5.000000002919336e-08
+    },
+    {
+      "name": "acquisition and driver RC time constants",
+      "passed": true,
+      "acquisition_tau_s": 5.120000000000015e-08,
+      "dac_driver_tau_s": 2.5600000000000127e-08
+    },
+    {
+      "name": "six SKY130 transmission-gate sampled-CDAC cases",
+      "passed": false,
+      "max_differential_error_v": 0.12499999,
+      "tolerance_lsb": 0.1
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "executed_at_utc": "2026-10-19T09:48:24Z",
+  "provenance": {
+    "workflow_url": "https://github.com/Snow-Warrior07/sar-adc-8bit/actions/runs/39232405914",
+    "workflow_commit": "91af02bc4a9c9fb6fe318c3a949fffe1a840765b",
+    "artifact_id": 12177851878,
+    "execution": "GitHub-hosted Ubuntu online runner",
+    "engine": "******\n** ngspice-42 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2023, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Mar 31 20:15:14 UTC 2024\n******\n",
+    "models": {
+      "repository": "https://github.com/eelab-dev/EEcircuit-engine",
+      "revision": "75594eec516be3087e64eeb5347a958de70f410c",
+      "source_sha256": {
+        "params": "c5c6540c43939ce197c9a09df2ea7c343572f234453354d25a02cc939d2d4f0e",
+        "nfet18": "8b5eee00ac4d388e0e62f47cdd48fd331a31b499dad05df5c7edae688c109e66",
+        "pfet18": "38ea25b26777f9c9cdb14e3937f9c31fcc6d329e0774dfb7e32b4bc918c1041a",
+        "pfet18_hvt": "3f9b13aabaf345bd4a09c35fb67910ccc64581a830f802725a706e30e4f20671"
+      },
+      "coverage": "EEcircuit SKY130 port; nominal model; no foundry process-corner or mismatch qualification",
+      "license": "SkyWater model portions Apache-2.0; upstream conversion/engine attribution retained"
+    }
+  },
+  "process_scope": "Nominal EEcircuit SKY130 port; voltage and temperature sweeps only; no foundry process-corner or mismatch qualification."
+}

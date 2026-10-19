@@ -6,10 +6,10 @@ Vtrackbar trackbar 0 PWL(0 0 1.875u 0 1.876u 1.8)
 Vcm cm 0 .9
 Vtrack track 0 PWL(0 1.8 1.875u 1.8 1.876u 0)
 * Matched NMOS/PMOS transmission gates; ideal capacitor/reference sources retained.
-Xp0n tp0 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xp0p tp0 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
-Xn0n tn0 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xn0p tn0 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xp0n tp0 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp0p tp0 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn0n tn0 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn0p tn0 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
 Rp0 tp0 0 1e14
 Rn0 tn0 0 1e14
 Vp0_0 bp0_0 0 PWL(0 0.655 2u 0.655 2.005u 0.65)
@@ -50,10 +50,10 @@ Vn0_8 bn0_8 0 PWL(0 1.145 2u 1.145 2.005u 1.15)
 Cn0_8 tn0 bn0_8 2e-14
 .meas tran tp_0 FIND v(tp0) AT=2.625u
 .meas tran tn_0 FIND v(tn0) AT=2.625u
-Xp1n tp1 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xp1p tp1 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
-Xn1n tn1 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xn1p tn1 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xp1n tp1 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp1p tp1 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn1n tn1 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn1p tn1 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
 Rp1 tp1 0 1e14
 Rn1 tn1 0 1e14
 Vp1_0 bp1_0 0 PWL(0 0.8375 2u 0.8375 2.005u 0.65)
@@ -94,10 +94,10 @@ Vn1_8 bn1_8 0 PWL(0 0.9625 2u 0.9625 2.005u 1.15)
 Cn1_8 tn1 bn1_8 2e-14
 .meas tran tp_1 FIND v(tp1) AT=2.625u
 .meas tran tn_1 FIND v(tn1) AT=2.625u
-Xp2n tp2 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xp2p tp2 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
-Xn2n tn2 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xn2p tn2 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xp2n tp2 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp2p tp2 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn2n tn2 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn2p tn2 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
 Rp2 tp2 0 1e14
 Rn2 tn2 0 1e14
 Vp2_0 bp2_0 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
@@ -138,10 +138,10 @@ Vn2_8 bn2_8 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
 Cn2_8 tn2 bn2_8 2e-14
 .meas tran tp_2 FIND v(tp2) AT=2.625u
 .meas tran tn_2 FIND v(tn2) AT=2.625u
-Xp3n tp3 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xp3p tp3 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
-Xn3n tn3 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xn3p tn3 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xp3n tp3 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp3p tp3 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn3n tn3 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn3p tn3 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
 Rp3 tp3 0 1e14
 Rn3 tn3 0 1e14
 Vp3_0 bp3_0 0 PWL(0 0.9 2u 0.9 2.005u 0.65)
@@ -182,10 +182,10 @@ Vn3_8 bn3_8 0 PWL(0 0.9 2u 0.9 2.005u 1.15)
 Cn3_8 tn3 bn3_8 2e-14
 .meas tran tp_3 FIND v(tp3) AT=2.625u
 .meas tran tn_3 FIND v(tn3) AT=2.625u
-Xp4n tp4 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xp4p tp4 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
-Xn4n tn4 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xn4p tn4 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xp4n tp4 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp4p tp4 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn4n tn4 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn4p tn4 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
 Rp4 tp4 0 1e14
 Rn4 tn4 0 1e14
 Vp4_0 bp4_0 0 PWL(0 0.9915 2u 0.9915 2.005u 1.15)
@@ -226,10 +226,10 @@ Vn4_8 bn4_8 0 PWL(0 0.8085 2u 0.8085 2.005u 1.15)
 Cn4_8 tn4 bn4_8 2e-14
 .meas tran tp_4 FIND v(tp4) AT=2.625u
 .meas tran tn_4 FIND v(tn4) AT=2.625u
-Xp5n tp5 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xp5p tp5 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
-Xn5n tn5 cm track 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
-Xn5p tn5 cm trackbar vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xp5n tp5 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xp5p tp5 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
+Xn5n tn5 track cm 0 sky130_fd_pr__nfet_01v8 W=1.26u L=0.15u
+Xn5p tn5 trackbar cm vdd sky130_fd_pr__pfet_01v8 W=1.26u L=0.15u
 Rp5 tp5 0 1e14
 Rn5 tn5 0 1e14
 Vp5_0 bp5_0 0 PWL(0 1.145 2u 1.145 2.005u 1.15)

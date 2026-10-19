@@ -34,17 +34,25 @@ def run():
     settling=benches['settling.cir']['measurements']
     acq_tau=settling['acq_cross']-1e-6-50e-12
     dac_tau=settling['dac_cross']-1e-6-50e-12
-    source_data={'workflow_url':'https://github.com/Snow-Warrior07/sar-adc-8bit/actions/runs/39231164889',
-                 'workflow_commit':'0fdbc2c','artifact_id':12177535247,
+    receipt=json.loads((target/'artifact-receipt.json').read_text()) if (target/'artifact-receipt.json').exists() else {}
+    source_data={'workflow_url':receipt.get('workflow_url','https://github.com/Snow-Warrior07/sar-adc-8bit/actions/runs/39231164889'),
+                 'workflow_commit':receipt.get('workflow_run',{}).get('head_sha','0fdbc2c'),'artifact_id':receipt.get('artifact_id',12177535247),
                  'execution':data['execution'],'engine':data['engine'],'models':data['models']}
     save('results/online-provenance.json',source_data)
-    phase(5,'Online circuit characterization',[
+    checks=[
         {'name':'42 SKY130 comparator operating points resolve with correct polarity','passed':bool(polarity),'cases':42},
         {'name':'comparator decisions fit the capture interval','passed':max(delays)<TCLK-5e-9,'maximum_delay_s':max(delays)},
         {'name':'20 ps versus 10 ps timestep convergence','passed':convergence<.01,'max_relative_delay_change':convergence},
         {'name':'six differential sampled-CDAC charge cases','passed':max(charge_errors)<.01/256,'max_residual_error_v':max(charge_errors)},
         {'name':'acquisition and driver RC time constants','passed':abs(acq_tau/51.2e-9-1)<.01 and abs(dac_tau/25.6e-9-1)<.01,
-         'acquisition_tau_s':acq_tau,'dac_driver_tau_s':dac_tau}],
+         'acquisition_tau_s':acq_tau,'dac_driver_tau_s':dac_tau}]
+    if 'cdac-mos.cir' in benches:
+        mos=benches['cdac-mos.cir']['measurements'];mos_errors=[]
+        for c in manifest['cdac-mos.cir']:
+            i=c['index'];mos_errors.append(abs(mos[f'tp_{i}']-mos[f'tn_{i}']-c['expected_residual_v']))
+        checks.append({'name':'six SKY130 transmission-gate sampled-CDAC cases','passed':max(mos_errors)<.1/256,
+                       'max_differential_error_v':max(mos_errors),'tolerance_lsb':.1})
+    phase(5,'Online circuit characterization',checks,
         {'provenance':source_data,'process_scope':'Nominal EEcircuit SKY130 port; voltage and temperature sweeps only; no foundry process-corner or mismatch qualification.'})
     training=[0,2,4];heldout=[1,3]
     x=[manifest['comparator-27c.cir'][i]['differential_v'] for i in training]
