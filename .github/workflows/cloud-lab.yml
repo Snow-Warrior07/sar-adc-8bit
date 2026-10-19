@@ -1,0 +1,37 @@
+name: Online engineering lab
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  engineering:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install open-source circuit and RTL tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ngspice iverilog yosys opensta
+          python -m pip install -r requirements.txt
+      - name: Reference tests
+        run: python -m pytest -q
+      - name: Run online circuit measurements
+        run: python -m tools.cloud_spice
+      - name: Run RTL verification
+        run: python -m tools.verify_rtl --quick
+      - name: Synthesize and analyze timing
+        run: python -m tools.synthesize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: engineering-evidence
+          path: |
+            results/
+            build/*.log
+            build/*.json
+            build/*.v
+            build/*.sdc

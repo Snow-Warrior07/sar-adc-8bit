@@ -1,0 +1,9 @@
+[project]
+name = "sar-adc-8bit"
+version = "0.1.0"
+description = "Verified SAR RTL with differential capacitor-DAC and online SPICE evidence"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

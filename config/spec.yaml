@@ -1,0 +1,19 @@
+resolution_bits: 8
+full_scale_span_v: 1.0
+supply_v: 1.8
+common_mode_v: 0.9
+reference_high_v: 1.15
+reference_low_v: 0.65
+unit_capacitance_f: 2.0e-14
+clock_hz: 3200000
+acquisition_cycles: 6
+hold_cycles: 1
+cycles_per_bit: 3
+done_cycles: 1
+sample_rate_hz: 100000
+output_coding: offset-binary
+equality_rule: keep-trial-bit
+targets:
+  max_abs_dnl_lsb: 0.75
+  max_abs_endpoint_inl_lsb: 1.0
+  minimum_low_frequency_enob: 7.0

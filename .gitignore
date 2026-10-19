@@ -1,0 +1,11 @@
+.venv/
+.tools/
+__pycache__/
+.pytest_cache/
+build/
+*.vcd
+*.fst
+results/raw/*.log
+results/raw/*.raw
+results/raw/*.csv
+!results/raw/.gitkeep
